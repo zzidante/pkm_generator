@@ -1,6 +1,10 @@
 let user_input = process.argv;
 
 function ask_user_return_pkmnObj(user_input) {
+  if (user_input.length < 10) {
+    throw new Error("Too few arguments given on CLI")
+  }
+  
   return get_pokemon(
     user_input[2], 
     parseInt(user_input[3]), 
@@ -28,7 +32,7 @@ function get_pokemon(name, level, baseHp, baseAtk, baseDefe, baseSpAtk, baseSpDe
     baseSpDefe: baseSpDefe,
     baseSpd: baseSpd
   };
-  return assignEvBonus(pokemonObj);
+  return reduce_base_stats_for_rpg_ruleset(pokemonObj);
 }
 
 function assignEvBonus(pokemonObj) {
@@ -70,71 +74,25 @@ function assignEvBonus(pokemonObj) {
   return generateNature(pokemonObj);
 };
 
+function reduce_base_stats_for_rpg_ruleset(pokemonObj) {
+  const calcRPGStat = (num) => Math.round(num / 10);
+
+  pokemonObj.minifiedBaseHp = calcRPGStat(pokemonObj.baseHp),
+  pokemonObj.minifiedBaseAtk = calcRPGStat(pokemonObj.baseAtk),
+  pokemonObj.minifiedBaseDefe = calcRPGStat(pokemonObj.baseDefe),
+  pokemonObj.minifiedBaseSpAtk = calcRPGStat(pokemonObj.baseSpAtk),
+  pokemonObj.minifiedBaseSpDefe = calcRPGStat(pokemonObj.baseSpDefe),
+  pokemonObj.minifiedBaseSpd = calcRPGStat(pokemonObj.baseSpd),
+  console.log(pokemonObj)
+  return assignEvBonus(pokemonObj);
+}
+
 function divideBy10(level, advantage) {
   if (advantage) {
     return 2 + (Math.floor(level / 10) * 2);    
   } else {
     return (1 + Math.floor(level / 10)) * (-1)
   }
-}
-
-function calcNature(pokemonObj) {
-  pokemonObj.natHp = 0;
-  pokemonObj.natAtk = 0;
-  pokemonObj.natDefe = 0;
-  pokemonObj.natSpAtk = 0;
-  pokemonObj.natSpDefe = 0;
-  pokemonObj.natSpd = 0;
-
-  let level = pokemonObj.level;
-  let advantage = pokemonObj.nature.adv;
-  let disadvantage = pokemonObj.nature.disAdv;
-
-  // Advantage
-  if (pokemonObj.nature.adv === 'atk') {
-    pokemonObj.natAtk = divideBy10(level, advantage);
-
-  } else if (pokemonObj.nature.adv === 'defe') {
-    pokemonObj.natDefe = divideBy10(level, advantage);
-
-  } else if (pokemonObj.nature.adv === 'spAtk') {
-    pokemonObj.natSpAtk = divideBy10(level, advantage);
-
-  } else if (pokemonObj.nature.adv === 'spDefe') {
-    pokemonObj.natSpDefe = divideBy10(level, advantage); 
-
-  } else if (pokemonObj.nature.adv === 'spd') {
-    pokemonObj.natSpd = divideBy10(level, advantage); 
-
-  } else if (pokemonObj.nature.adv === 'hp') {
-    pokemonObj.natHp = divideBy10(level, advantage); 
-  } else {
-    return "error";
-  }
-
-  // Disadvantage
-
-  if (pokemonObj.nature.disAdv === 'atk') {
-    pokemonObj.natAtk = divideBy10(level); 
-
-  } else if (pokemonObj.nature.disAdv === 'defe') {
-    pokemonObj.natDefe = divideBy10(level); 
-
-  } else if (pokemonObj.nature.disAdv === 'spAtk') {
-    pokemonObj.natSpAtk = divideBy10(level);
-
-  } else if (pokemonObj.nature.disAdv === 'spDefe') {
-    pokemonObj.natSpDefe = divideBy10(level); 
-
-  } else if (pokemonObj.nature.disAdv === 'spd') {
-    pokemonObj.natSpd = divideBy10(level); 
-
-  } else if (pokemonObj.nature.disAdv === 'hp') {
-    pokemonObj.natHp = divideBy10(level);
-  } else {
-    return "error";
-  }
-  return pokemonObj;
 }
 
 function generateNature(pokemonObj) {
@@ -266,6 +224,65 @@ function generateNature(pokemonObj) {
   return calculateAffinity(calcNature(pokemonObj));
 };
 
+function calcNature(pokemonObj) {
+  pokemonObj.natHp = 0;
+  pokemonObj.natAtk = 0;
+  pokemonObj.natDefe = 0;
+  pokemonObj.natSpAtk = 0;
+  pokemonObj.natSpDefe = 0;
+  pokemonObj.natSpd = 0;
+
+  let level = pokemonObj.level;
+  let advantage = pokemonObj.nature.adv;
+  let disadvantage = pokemonObj.nature.disAdv;
+
+  // Advantage
+  if (pokemonObj.nature.adv === 'atk') {
+    pokemonObj.natAtk = divideBy10(level, advantage);
+
+  } else if (pokemonObj.nature.adv === 'defe') {
+    pokemonObj.natDefe = divideBy10(level, advantage);
+
+  } else if (pokemonObj.nature.adv === 'spAtk') {
+    pokemonObj.natSpAtk = divideBy10(level, advantage);
+
+  } else if (pokemonObj.nature.adv === 'spDefe') {
+    pokemonObj.natSpDefe = divideBy10(level, advantage); 
+
+  } else if (pokemonObj.nature.adv === 'spd') {
+    pokemonObj.natSpd = divideBy10(level, advantage); 
+
+  } else if (pokemonObj.nature.adv === 'hp') {
+    pokemonObj.natHp = divideBy10(level, advantage); 
+  } else {
+    return "error";
+  }
+
+  // Disadvantage
+
+  if (pokemonObj.nature.disAdv === 'atk') {
+    pokemonObj.natAtk = divideBy10(level); 
+
+  } else if (pokemonObj.nature.disAdv === 'defe') {
+    pokemonObj.natDefe = divideBy10(level); 
+
+  } else if (pokemonObj.nature.disAdv === 'spAtk') {
+    pokemonObj.natSpAtk = divideBy10(level);
+
+  } else if (pokemonObj.nature.disAdv === 'spDefe') {
+    pokemonObj.natSpDefe = divideBy10(level); 
+
+  } else if (pokemonObj.nature.disAdv === 'spd') {
+    pokemonObj.natSpd = divideBy10(level); 
+
+  } else if (pokemonObj.nature.disAdv === 'hp') {
+    pokemonObj.natHp = divideBy10(level);
+  } else {
+    return "error";
+  }
+  return pokemonObj;
+}
+
 // utility function
 
 function getAffinityCalc(stat, level) {
@@ -299,17 +316,17 @@ function calculateAffinity(pokemonObj) {
 
 function getTotal(pokemonObj) {
 
-  const { baseHp, baseAtk, baseDefe, baseSpAtk, baseSpDefe, baseSpd } = pokemonObj;
+  const { minifiedBaseHp, minifiedBaseAtk, minifiedBaseDefe, minifiedBaseSpAtk, minifiedBaseSpDefe, minifiedBaseSpd } = pokemonObj;  
   const { evHp, evAtk, evDefe, evSpAtk, evSpDefe, evSpd } = pokemonObj;
   const { affHp, affAtk, affDefe, affSpAtk, affSpDefe, affSpd } = pokemonObj;
   const { natHp, natAtk, natDefe, natSpAtk, natSpDefe, natSpd } = pokemonObj;
   
-  const totalHp = baseHp + evHp + affHp + natHp;
-  const totalAtk = baseAtk + evAtk + affAtk + natAtk;
-  const totalDefe = baseDefe + evDefe + affDefe + natDefe;
-  const totalSpAtk = baseSpAtk + evSpAtk + affSpAtk + natSpAtk;
-  const totalSpDefe = baseSpDefe + evSpDefe + affSpDefe + natSpDefe;
-  const totalSpd = baseSpd + evSpd + affSpd + natSpd;
+  const totalHp = minifiedBaseHp + evHp + affHp + natHp;
+  const totalAtk = minifiedBaseAtk + evAtk + affAtk + natAtk;
+  const totalDefe = minifiedBaseDefe + evDefe + affDefe + natDefe;
+  const totalSpAtk = minifiedBaseSpAtk + evSpAtk + affSpAtk + natSpAtk;
+  const totalSpDefe = minifiedBaseSpDefe + evSpDefe + affSpDefe + natSpDefe;
+  const totalSpd = minifiedBaseSpd + evSpd + affSpd + natSpd;
   
   pokemonObj.totalHp = totalHp;
   pokemonObj.totalAtk = totalAtk;
