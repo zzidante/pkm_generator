@@ -32,7 +32,7 @@ function get_pokemon(name, level, baseHp, baseAtk, baseDefe, baseSpAtk, baseSpDe
     baseSpDefe: baseSpDefe,
     baseSpd: baseSpd
   };
-  return reduce_base_stats_for_rpg_ruleset(pokemonObj);
+  return convertStatToMinifiedRPGStat(pokemonObj);
 }
 
 function assignEvBonus(pokemonObj) {
@@ -74,7 +74,7 @@ function assignEvBonus(pokemonObj) {
   return generateNature(pokemonObj);
 };
 
-function reduce_base_stats_for_rpg_ruleset(pokemonObj) {
+function convertStatToMinifiedRPGStat(pokemonObj) {
   const calcRPGStat = (num) => Math.round(num / 10);
 
   pokemonObj.minifiedBaseHp = calcRPGStat(pokemonObj.baseHp),
@@ -83,7 +83,7 @@ function reduce_base_stats_for_rpg_ruleset(pokemonObj) {
   pokemonObj.minifiedBaseSpAtk = calcRPGStat(pokemonObj.baseSpAtk),
   pokemonObj.minifiedBaseSpDefe = calcRPGStat(pokemonObj.baseSpDefe),
   pokemonObj.minifiedBaseSpd = calcRPGStat(pokemonObj.baseSpd),
-  console.log(pokemonObj)
+  console.log('mini assigned');
   return assignEvBonus(pokemonObj);
 }
 
@@ -286,6 +286,7 @@ function calcNature(pokemonObj) {
 // utility function
 
 function getAffinityCalc(stat, level) {
+  console.log(stat, level)
   if (stat <= 3) {
     return Math.floor(level / 6);
   } else if (stat <= 7) {
@@ -302,14 +303,22 @@ function getAffinityCalc(stat, level) {
 }
 
 function calculateAffinity(pokemonObj) {
-  const { level, baseHp, baseAtk, baseDefe, baseSpAtk, baseSpDefe, baseSpd } = pokemonObj;
+  const { 
+    level,
+    minifiedBaseHp,
+    minifiedBaseAtk,
+    minifiedBaseDefe,
+    minifiedBaseSpAtk,
+    minifiedBaseSpDefe,
+    minifiedBaseSpd 
+  } = pokemonObj;
 
-  pokemonObj.affHp = getAffinityCalc(baseHp, level);
-  pokemonObj.affAtk = getAffinityCalc(baseAtk, level);
-  pokemonObj.affDefe = getAffinityCalc(baseDefe, level);
-  pokemonObj.affSpAtk = getAffinityCalc(baseSpAtk, level);
-  pokemonObj.affSpDefe = getAffinityCalc(baseSpDefe, level);
-  pokemonObj.affSpd = getAffinityCalc(baseSpd, level);
+  pokemonObj.affHp = getAffinityCalc(minifiedBaseHp, level);
+  pokemonObj.affAtk = getAffinityCalc(minifiedBaseAtk, level);
+  pokemonObj.affDefe = getAffinityCalc(minifiedBaseDefe, level);
+  pokemonObj.affSpAtk = getAffinityCalc(minifiedBaseSpAtk, level);
+  pokemonObj.affSpDefe = getAffinityCalc(minifiedBaseSpDefe, level);
+  pokemonObj.affSpd = getAffinityCalc(minifiedBaseSpd, level);
   
   return getTotal(pokemonObj);
 };
@@ -321,7 +330,7 @@ function getTotal(pokemonObj) {
   const { affHp, affAtk, affDefe, affSpAtk, affSpDefe, affSpd } = pokemonObj;
   const { natHp, natAtk, natDefe, natSpAtk, natSpDefe, natSpd } = pokemonObj;
   
-  const totalHp = minifiedBaseHp + evHp + affHp + natHp;
+  const totalHp = (minifiedBaseHp + evHp + affHp + natHp) * 2;
   const totalAtk = minifiedBaseAtk + evAtk + affAtk + natAtk;
   const totalDefe = minifiedBaseDefe + evDefe + affDefe + natDefe;
   const totalSpAtk = minifiedBaseSpAtk + evSpAtk + affSpAtk + natSpAtk;
@@ -336,10 +345,15 @@ function getTotal(pokemonObj) {
   pokemonObj.totalSpd = totalSpd;
 
   return pokemonObj;
-
 };
 
+// function groupByStat(pokemonObj) {
+//   pokemonObj.hP[]
+// }
+
 // run script: node pokemon_gen_calculator.js flaff 10 10 10 10 10 10 10 
-console.log(ask_user_return_pkmnObj(user_input));
+const finishedPokemonObj = ask_user_return_pkmnObj(user_input);
+console.log(finishedPokemonObj);
 
-
+// package by stat
+// console.log(groupByStat(finishedPokemonObj));
