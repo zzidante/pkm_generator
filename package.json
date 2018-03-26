@@ -1,0 +1,19 @@
+{
+  "name": "dungeons_and_dragonairs",
+  "version": "1.0.0",
+  "description": "A set of helper scripts to help generate trainer and wild pokemon for dungeons and dragonairs fan-made and free pokemon RPG.",
+  "main": "pokemon_gen_calculator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzidante/pkmn_rpg_gen.git"
+  },
+  "author": "mel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzidante/pkmn_rpg_gen/issues"
+  },
+  "homepage": "https://github.com/zzidante/pkmn_rpg_gen#readme"
+}

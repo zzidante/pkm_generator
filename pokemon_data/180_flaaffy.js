@@ -1,52 +1,54 @@
 module.exports = {
   name: 'flaaffy',
   pokedex: 180,
-  //
   evolution: {
     hasEvolutions: true,
     currentEvolutionStep: 2,
-    maxEvolutionSteps: 2, // max branching number
-    totalEvolutionStats: 2, // total types of evolutions regardless of branching
+    maxEvolutionSteps: 3,
     details: [
-      {  evolutionStep: 1, form: 'magikarp', level: 0, condition: false },
-      {  evolutionStep: 2, form: 'gyarados', level: 20, condition: false },
+      {  evolutionStep: 1, form: 'mareep', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'flaaffy', level: 15, condition: false },
+      {  evolutionStep: 3, form: 'ampharos', level: 30, condition: false },      
     ]
-  },            
-  stats: {
-    hp: 95,
-    atk: 125,
-    def: 79,
-    spAtk: 60,
-    spDef: 100,
-    spd: 81,
   },
-  type: ['water', 'flying'],
-  catchRate: 5.9,
-  experienceYield: 189,
+  stats: {
+    hp: 70,
+    atk: 55,
+    def: 55,
+    spAtk: 80,
+    spDef: 60,
+    spd: 45,
+  },
+  type: ['electric'],
+  catchRate: 15.7,
+  experienceYield: 128,
   genderRatio: [50, 50],
   evYield: [
-    { type: 'atk', value: 2}
+    { type: 'spAtk', value: 2 }
   ],
   abilities: [
-    {name: 'intimidate'},
-    {name: 'moxie', hidden: true }
+    {name: 'static', hidden: false },
+    {name: 'plus', hidden: true }
   ],
-  height: 6.5,
-  weight: 235.0,
+  height: 0.8,
+  weight: 13.3,
   moves: [
-    { name: 'bite', level: 1 },
-    { name: 'thrash', level: 1 },
-    { name: 'leer', level: 21 },
-    { name: 'twister', level: 24 },
-    { name: 'ice fang', level: 27 },
-    { name: 'aqua tail', level: 30 },
-    { name: 'scary face', level: 33 },
-    { name: 'dragon rage', level: 36 },
-    { name: 'crunch', level: 39 },
-    { name: 'hydro pump', level: 42 },
-    { name: 'dragon dance', level: 45 },
-    { name: 'hurricane', level: 48 },
-    { name: 'rain dance', level: 51 },
-    { name: 'hyper beam', level: 54 },
+    { name: 'tackle', level: 1 },
+    { name: 'growl', level: 1 },
+    { name: 'thunder wave', level: 1 },
+    { name: 'thunder shock', level: 1 },
+    { name: 'thunder wave', level: 4 },
+    { name: 'thunder shock', level: 8 },
+    { name: 'cotton spore', level: 11 },
+    { name: 'charge', level: 16 },
+    { name: 'take down', level: 20 },
+    { name: 'electro ball', level: 25 },
+    { name: 'confuse ray', level: 29 },
+    { name: 'power gem', level: 34 },
+    { name: 'discharge', level: 38 },
+    { name: 'cotton guard', level: 43 },
+    { name: 'signal beam', level: 47 },
+    { name: 'light screen', level: 52 },
+    { name: 'thunder', level: 56 },
   ],
 };

@@ -1,52 +1,47 @@
 module.exports = {
   name: 'cloyster',
   pokedex: 91,
-//
   evolution: {
     hasEvolutions: true,
     currentEvolutionStep: 2,
-    maxEvolutionSteps: 2, // max branching number
-    totalEvolutionStats: 2, // total types of evolutions regardless of branching
+    maxEvolutionSteps: 2,
     details: [
-      {  evolutionStep: 1, form: 'magikarp', level: 0, condition: false },
-      {  evolutionStep: 2, form: 'gyarados', level: 20, condition: false },
+      {  evolutionStep: 1, form: 'shellder', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'cloyster', level: false, condition: 'water stone' },
     ]
   },            
   stats: {
-    hp: 95,
-    atk: 125,
-    def: 79,
-    spAtk: 60,
-    spDef: 100,
-    spd: 81,
+    hp: 50,
+    atk: 95,
+    def: 180,
+    spAtk: 85,
+    spDef: 45,
+    spd: 70,
   },
-  type: ['water', 'flying'],
-  catchRate: 5.9,
-  experienceYield: 189,
+  type: ['water', 'ice'],
+  catchRate: 7.8,
+  experienceYield: 184,
   genderRatio: [50, 50],
   evYield: [
-    { type: 'atk', value: 2}
+    { type: 'def', value: 2}
   ],
   abilities: [
-    {name: 'intimidate'},
-    {name: 'moxie', hidden: true }
+    {name: 'shell armor', hidden: false },
+    {name: 'skill link', hidden: false },    
+    {name: 'overcoat', hidden: true }
   ],
-  height: 6.5,
-  weight: 235.0,
+  height: 1.5,
+  weight: 132.5,
   moves: [
-    { name: 'bite', level: 1 },
-    { name: 'thrash', level: 1 },
-    { name: 'leer', level: 21 },
-    { name: 'twister', level: 24 },
-    { name: 'ice fang', level: 27 },
-    { name: 'aqua tail', level: 30 },
-    { name: 'scary face', level: 33 },
-    { name: 'dragon rage', level: 36 },
-    { name: 'crunch', level: 39 },
-    { name: 'hydro pump', level: 42 },
-    { name: 'dragon dance', level: 45 },
-    { name: 'hurricane', level: 48 },
-    { name: 'rain dance', level: 51 },
-    { name: 'hyper beam', level: 54 },
+    { name: 'hydro pump', level: 1 },
+    { name: 'shell smash', level: 1 },
+    { name: 'toxic spikes', level: 1 },
+    { name: 'withdraw', level:  1 },
+    { name: 'supersonic', level: 1 },
+    { name: 'protect', level: 1 },
+    { name: 'aurora beam', level: 1 },
+    { name: 'spike cannon', level: 13 },
+    { name: 'spikes', level: 28 },
+    { name: 'icicle crash', level: 50 },
   ],
 };
