@@ -22,7 +22,7 @@ module.exports = {
   type: ['water'],
   catchRate: 7.8,
   experienceYield: 166,
-  genderRatio: [50, 50],
+  genderRatio: [{m: 50}, {f: 50}],
   evYield: [
     { type: 'atk', value: 2 }
   ],

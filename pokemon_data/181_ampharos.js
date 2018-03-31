@@ -22,7 +22,7 @@ module.exports = {
   type: ['electric'],
   catchRate: 5.9,
   experienceYield: 230,
-  genderRatio: [50, 50],
+  genderRatio: [{m: 50}, {f: 50}],
   evYield: [
     { type: 'spAtk', value: 3 }
   ],
