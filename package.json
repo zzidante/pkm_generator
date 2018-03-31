@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/zzidante/pkmn_rpg_gen/issues"
   },
-  "homepage": "https://github.com/zzidante/pkmn_rpg_gen#readme"
+  "homepage": "https://github.com/zzidante/pkmn_rpg_gen#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
