@@ -1,0 +1,28 @@
+module.exports = {
+  number: 1,
+  name: 'pound',
+  power: 40,
+  accuracy: 100,
+  rpgStats: {
+    power: 'D4',
+    accuracy: 'D19',
+    statusEffect: false,
+    multiHit: false,
+  },
+  specialEffects: [],
+  type: 'normal',
+  category: 'physical',
+  priority: 0,
+  generation: 1,
+  adjacentRules: {
+    allAdjacent: false,
+    allAdjacentFoes: false,
+    all: false,
+    allFoes: false,
+    allAllies: false,
+    targetOnly: true,
+    canHitAnyOneAdjacent: true,
+  },
+  tm: false,
+  hm: false,
+};

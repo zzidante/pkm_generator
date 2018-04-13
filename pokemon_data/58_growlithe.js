@@ -10,6 +10,7 @@ module.exports = {
       {  evolutionStep: 2, form: 'arcanine', level: false, condition: 'fire stone' },
     ]
   },
+  regional_variant: { type: false },  
   stats: {
     hp: 55,
     atk: 70,
