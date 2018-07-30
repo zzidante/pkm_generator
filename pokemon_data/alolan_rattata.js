@@ -1,7 +1,7 @@
-// import alolan rattata
+// need to complete this entry
 
 module.exports = {
-  name: 'rattata',
+  name: 'alolan rattata',
   pokedex: 19,
   evolution: {
     hasEvolutions: true,
