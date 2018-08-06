@@ -2,7 +2,7 @@ let user_input = process.argv;
 
 function ask_user_return_pkmnObj(user_input) {
   if (user_input.length < 10) {
-    throw new Error("Too few arguments given on CLI")
+    throw new Error('Too few arguments given on CLI');
   }
   
   return get_pokemon(
@@ -15,14 +15,14 @@ function ask_user_return_pkmnObj(user_input) {
     parseInt(user_input[8]), 
     parseInt(user_input[9])
   );
-};
+}
 
 function randomizeNum(numUpto) {
   return Math.floor(Math.random() * numUpto) + 1;  
-};
+}
 
 function get_pokemon(name, level, baseHp, baseAtk, baseDefe, baseSpAtk, baseSpDefe, baseSpd) {
-  pokemonObj = {
+  const pokemonObj = {
     name: name,
     level: level,
     baseHp: baseHp,
@@ -60,9 +60,9 @@ function assignEvBonus(pokemonObj) {
     } else if (num === 6) {
       evSpd++;
     } else {
-      console.log('error')
+      console.log('error');
     }
-  };
+  }
 
   pokemonObj.evHp = evHp;
   pokemonObj.evAtk = evAtk;
@@ -83,15 +83,14 @@ function convertStatToMinifiedRPGStat(pokemonObj) {
   pokemonObj.minifiedBaseSpAtk = calcRPGStat(pokemonObj.baseSpAtk),
   pokemonObj.minifiedBaseSpDefe = calcRPGStat(pokemonObj.baseSpDefe),
   pokemonObj.minifiedBaseSpd = calcRPGStat(pokemonObj.baseSpd),
-  console.log('mini assigned');
-  return assignEvBonus(pokemonObj);
+  assignEvBonus(pokemonObj);
 }
 
 function divideBy10(level, advantage) {
   if (advantage) {
     return 2 + (Math.floor(level / 10) * 2);    
   } else {
-    return (1 + Math.floor(level / 10)) * (-1)
+    return (1 + Math.floor(level / 10)) * (-1);
   }
 }
 
@@ -100,129 +99,129 @@ function generateNature(pokemonObj) {
 
   if (nature === 1) {
     pokemonObj.nature = {
-      name: "lonely",
-      adv: "atk",
-      disAdv: "defe"
+      name: 'lonely',
+      adv: 'atk',
+      disAdv: 'defe'
     };
   } else if (nature === 2) {
     pokemonObj.nature = {
-      name: "brave",
-      adv: "atk",
-      disAdv: "spd"
+      name: 'brave',
+      adv: 'atk',
+      disAdv: 'spd'
     };
   } else if (nature === 3) {
     pokemonObj.nature = {
-      name: "adament",
-      adv: "atk",
-      disAdv: "spAtk"
+      name: 'adament',
+      adv: 'atk',
+      disAdv: 'spAtk'
     };
   } else if (nature === 4) {
     pokemonObj.nature = {
-      name: "naughty",
-      adv: "atk",
-      disAdv: "spDefe"
+      name: 'naughty',
+      adv: 'atk',
+      disAdv: 'spDefe'
     };
   } else if (nature === 5) {
     pokemonObj.nature = {
-      name: "bold",
-      adv: "defe",
-      disAdv: "atk"
+      name: 'bold',
+      adv: 'defe',
+      disAdv: 'atk'
     };
   } else if (nature === 6) {
     pokemonObj.nature = {
-      name: "relaxed",
-      adv: "defe",
-      disAdv: "spd"
+      name: 'relaxed',
+      adv: 'defe',
+      disAdv: 'spd'
     };
   } else if (nature === 7) {
     pokemonObj.nature = {
-      name: "impish",
-      adv: "defe",
-      disAdv: "spAtk"
+      name: 'impish',
+      adv: 'defe',
+      disAdv: 'spAtk'
     };
   } else if (nature === 8) {
     pokemonObj.nature = {
-      name: "lax",
-      adv: "defe",
-      disAdv: "spDef"
+      name: 'lax',
+      adv: 'defe',
+      disAdv: 'spDef'
     };
   } else if (nature === 9) {
     pokemonObj.nature = {
-      name: "timid",
-      adv: "spd",
-      disAdv: "atk"
+      name: 'timid',
+      adv: 'spd',
+      disAdv: 'atk'
     };
   } else if (nature === 10) {
     pokemonObj.nature = {
-      name: "hasty",
-      adv: "spd",
-      disAdv: "defe"
+      name: 'hasty',
+      adv: 'spd',
+      disAdv: 'defe'
     };
   } else if (nature === 11) {
     pokemonObj.nature = {
-      name: "jolly",
-      adv: "spd",
-      disAdv: "spAtk"
+      name: 'jolly',
+      adv: 'spd',
+      disAdv: 'spAtk'
     };
   } else if (nature === 12) {
     pokemonObj.nature = {
-      name: "naive",
-      adv: "spd",
-      disAdv: "spDefe"
+      name: 'naive',
+      adv: 'spd',
+      disAdv: 'spDefe'
     };
   } else if (nature === 13) {
     pokemonObj.nature = {
-      name: "modest",
-      adv: "spAtk",
-      disAdv: "atk"
+      name: 'modest',
+      adv: 'spAtk',
+      disAdv: 'atk'
     };
   } else if (nature === 14) {
     pokemonObj.nature = {
-      name: "mild",
-      adv: "spAtk",
-      disAdv: "defe"
+      name: 'mild',
+      adv: 'spAtk',
+      disAdv: 'defe'
     };
   } else if (nature === 15) {
     pokemonObj.nature = {
-      name: "quiet",
-      adv: "spAtk",
-      disAdv: "spd"
+      name: 'quiet',
+      adv: 'spAtk',
+      disAdv: 'spd'
     };
   } else if (nature === 16) {
     pokemonObj.nature = {
-      name: "rash",
-      adv: "spAtk",
-      disAdv: "spDefe"
+      name: 'rash',
+      adv: 'spAtk',
+      disAdv: 'spDefe'
     };
   } else if (nature === 17) {
     pokemonObj.nature = {
-      name: "calm",
-      adv: "spDefe",
-      disAdv: "atk"
+      name: 'calm',
+      adv: 'spDefe',
+      disAdv: 'atk'
     };
   } else if (nature === 18) {
     pokemonObj.nature = {
-      name: "gentle",
-      adv: "spDefe",
-      disAdv: "defe"
+      name: 'gentle',
+      adv: 'spDefe',
+      disAdv: 'defe'
     };
   } else if (nature === 19) {
     pokemonObj.nature = {
-      name: "sassy",
-      adv: "spDefe",
-      disAdv: "spd"
+      name: 'sassy',
+      adv: 'spDefe',
+      disAdv: 'spd'
     };
   } else if (nature === 20) {
     pokemonObj.nature = {
-      name: "careful",
-      adv: "spDefe",
-      disAdv: "spAtk"
+      name: 'careful',
+      adv: 'spDefe',
+      disAdv: 'spAtk'
     };
   } else {
-    return "error";
+    return 'error';
   }
   return calculateAffinity(calcNature(pokemonObj));
-};
+}
 
 function calcNature(pokemonObj) {
   pokemonObj.natHp = 0;
@@ -255,7 +254,7 @@ function calcNature(pokemonObj) {
   } else if (pokemonObj.nature.adv === 'hp') {
     pokemonObj.natHp = divideBy10(level, advantage); 
   } else {
-    return "error";
+    return 'error';
   }
 
   // Disadvantage
@@ -278,7 +277,7 @@ function calcNature(pokemonObj) {
   } else if (pokemonObj.nature.disAdv === 'hp') {
     pokemonObj.natHp = divideBy10(level);
   } else {
-    return "error";
+    return 'error';
   }
   return pokemonObj;
 }
@@ -286,7 +285,7 @@ function calcNature(pokemonObj) {
 // utility function
 
 function getAffinityCalc(stat, level) {
-  console.log(stat, level)
+  console.log(stat, level);
   if (stat <= 3) {
     return Math.floor(level / 6);
   } else if (stat <= 7) {
@@ -298,7 +297,7 @@ function getAffinityCalc(stat, level) {
   } else if (stat >= 19) {
     return Math.floor(level / 2);
   } else {
-    return "error";
+    return 'error';
   }
 }
 
@@ -345,7 +344,7 @@ function getTotal(pokemonObj) {
   pokemonObj.totalSpd = totalSpd;
 
   return pokemonObj;
-};
+}
 
 // function groupByStat(pokemonObj) {
 //   pokemonObj.hP[]

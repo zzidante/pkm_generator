@@ -1,12 +1,11 @@
 const method = require('./transform_pokemon_data.js');
 const pokemon = require('./pokemon_data/gen_1_pokemon.js');
 
-
 console.log(method.buildGeneratorQuery(pokemon.gyarados, 10));
 
 // console.log('stat? ', transformData.getStats(nidoran_m, 'HP')); // (pokemon, stat) => {}
 // console.log(transformData.getPrettyStats(cloyster)); // pokemon => ''
-// console.log(transformData.buildGeneratorQuery(cloyster, 1)); // pokemon, level => ''
+console.log(transformData.buildGeneratorQuery(cloyster, 1)); // pokemon, level => ''
 // console.log(transformData.getValidMoveByLevel(cloyster, 1)); // pokemon, level => []
 // console.log(transformData.evolvesWhen(sandshrew)); // pokemon => []
 // console.log(transformData.evValue(clefairy)); // pokemon, *format => * ? '' : []

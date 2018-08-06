@@ -4,7 +4,7 @@
   "description": "A set of helper scripts to help generate trainer and wild pokemon for dungeons and dragonairs fan-made and free pokemon RPG.",
   "main": "pokemon_gen_calculator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,9 @@
     "url": "https://github.com/zzidante/pkmn_rpg_gen/issues"
   },
   "homepage": "https://github.com/zzidante/pkmn_rpg_gen#readme",
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
   "devDependencies": {}
 }

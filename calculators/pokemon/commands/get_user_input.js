@@ -1,10 +1,9 @@
 //** Public Interface */
 
-const getUserInput = () => {
-  const input = process.argv.slice(2);
-  checkArguments(input);
+const getUserInput = (input) => {
+  internalMethods.checkArguments(input);
 
-  const inputToInt = formatToNum(input.slice(1));
+  const inputToInt = internalMethods.formatToNum(input.slice(1));
   
   return {
     name: input[0],
@@ -18,34 +17,37 @@ const getUserInput = () => {
   };
 };
 
-module.exports = getUserInput;
+const internalMethods = {
 
-//** Private Methods */
-
-const checkArguments = (input) => {
-  checkArgumentLength(input);
-  checkArgumentTypes(input);
-};
-
-const checkArgumentLength = (input) => {
-  if (input.length < 8 || input.length > 8) {
-    throw new Error('Please supply exactly 8 arguments');
-  }
-};
-
-const checkArgumentTypes = (input) => {
-  const typeCheck = input.filter((stat, i) => {
-    if (i > 0) {
-      return !isNaN(parseFloat(stat));
+  checkArgumentLength: function (input) {
+    if (input.length < 8 || input.length > 8 || input.constructor !== Array) {
+      throw new Error('Please supply exactly 8 arguments following `node generate_pokemon.js`');
     }
-  });
+    return input.length;
+  },
+  
+  checkArgumentTypes: function (input) {
+    const typeCheck = input.filter((stat, i) => {
+      if (i > 0) {
+        return !isNaN(parseFloat(stat));
+      }
+    });
+    if (typeCheck.length !== input.length - 1) {
+      throw new Error('Please use numbers for the last 7 arguments');
+    }
+  },
+  
+  checkArguments: function (input) {
+    this.checkArgumentLength(input);
+    this.checkArgumentTypes(input);
+  },
 
-  if (typeCheck.length !== input.length - 1) {
-    throw new Error('Please use numbers for the last 7 arguments');
+  formatToNum: function (input) {
+    return input.map((a) => parseInt(a));
   }
 };
 
-const formatToNum = (input) => {
-  return input.map((a) => parseInt(a));
+module.exports = {
+  interface: getUserInput,
+  internalMethods: internalMethods,
 };
-
