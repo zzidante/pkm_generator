@@ -1,10 +1,11 @@
-let chai = require('chai');
-var assert = chai.assert;
+const chai = require('chai');
+const assert = chai.assert;
+const sinon = require('sinon');
 
-let getUserInput = require('../../../../calculators/pokemon/commands/get_user_input.js').internalMethods;
+let getUserInput = require('../../../../calculators/pokemon/commands/get_user_input.js').internal;
 
 describe('calculators/pokemon/commands/get_user_input.js', function () {
-  describe('internalMethods = {}', function () {
+  describe('internal = {}', function () {
     describe('checkArgumentLength()', function () {
       it('does not return an error for 8 arguments', function () {
         const input = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -48,6 +49,34 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
         assert.throws(
           () => getUserInput.checkArgumentTypes(incorrectInput), Error, 'Please use numbers for the last 7 arguments'
         );
+      });
+    });
+
+    describe('filterArguments()', function () {
+      it('it calls its wrapped fns', function () {
+        // spy
+        sinon.spy(getUserInput, 'filterArguments');
+
+        // stubs
+        const checkArgumentLength = sinon.stub(getUserInput, 'checkArgumentLength');
+        const checkArgumentTypes = sinon.stub(getUserInput, 'checkArgumentTypes');
+        
+        // call the method
+        getUserInput.filterArguments('test');
+
+        // assertions
+        sinon.assert.calledWith(checkArgumentLength, 'test');
+        sinon.assert.calledWith(checkArgumentTypes, 'test');
+        sinon.restore();
+      });
+    });
+    describe('formatToNum()', function () {
+      it('it turns an array of string numbers into real numbers', function () {        
+        const call = ['1', '2'];
+        const result = [1, 2];
+
+        const formattedNumber = getUserInput.formatToNum(call);
+        assert.deepEqual(formattedNumber, result);
       });
     });
   });

@@ -1,7 +1,7 @@
 //** Public Interface */
 
 const getUserInput = (input) => {
-  internalMethods.checkArguments(input);
+  internalMethods.filterArguments(input);
 
   const inputToInt = internalMethods.formatToNum(input.slice(1));
   
@@ -17,8 +17,8 @@ const getUserInput = (input) => {
   };
 };
 
+//** Internal Interface */
 const internalMethods = {
-
   checkArgumentLength: function (input) {
     if (input.length < 8 || input.length > 8 || input.constructor !== Array) {
       throw new Error('Please supply exactly 8 arguments following `node generate_pokemon.js`');
@@ -32,12 +32,16 @@ const internalMethods = {
         return !isNaN(parseFloat(stat));
       }
     });
-    if (typeCheck.length !== input.length - 1) {
+    
+    const lengthDifference = typeCheck.length !== input.length - 1;
+
+    if (lengthDifference) {
       throw new Error('Please use numbers for the last 7 arguments');
     }
+    return lengthDifference;
   },
   
-  checkArguments: function (input) {
+  filterArguments: function (input) {
     this.checkArgumentLength(input);
     this.checkArgumentTypes(input);
   },
@@ -49,5 +53,5 @@ const internalMethods = {
 
 module.exports = {
   interface: getUserInput,
-  internalMethods: internalMethods,
+  internal: internalMethods,
 };
