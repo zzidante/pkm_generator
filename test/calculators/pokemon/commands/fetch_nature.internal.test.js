@@ -46,6 +46,14 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
 
         assert.deepEqual(results, {level: 1, natureBoost: 'test', natureCut: 'sample'});
         sinon.restore();
+      }); 
+
+      it('throws an error when it the object has no level property', function () {
+        const input = {pokemonObj: {level: 20}, rolledNature: 0, dataOnly: true};
+        
+        assert.throws(
+          () => FetchNature.calculateNatureChanges(input), Error, 'Expected \'object: {level: <number>}\' in args - given: pokemonObj.level = undefined'
+        );
       });     
     });
   });

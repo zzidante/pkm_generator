@@ -126,7 +126,7 @@ const fetchNature = function(
       disAdv: 'spAtk'
     };
   } else {
-    return 'error';
+    throw new Error(`rolledNature given: ${rolledNature}. Expected 1 - 20`);
   }
   // convienience method ability to not assign a value but see the nature instead
   if (dataOnly) { return pokemonObj.nature; }
@@ -144,6 +144,10 @@ const internalMethods = {
   },
 
   calculateNatureChanges: function(pokemonObj) {
+    if (!pokemonObj.level || isNaN(pokemonObj.level)) { 
+      throw new Error(`Expected 'object: {level: <number>}' in args - given: pokemonObj.level = ${pokemonObj.level}`); 
+    }
+
     return Object.assign(
       {
         natureBoost: this.natureStatChangeByLevel({level: pokemonObj.level, advantage: true}),
