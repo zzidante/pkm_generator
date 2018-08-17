@@ -8,7 +8,7 @@ function calculate_new_pokemon() {
   const userInput = getUserInput(process.argv.slice(2));
   const minifiedStats = minifyStats(userInput);
   const assignedEvPoints = assignEvBonus(minifiedStats, randomizeNumber);
-  const generatedNature = generateNature(assignedEvPoints, randomizeNumber);
+  const generatedNature = generateNature(assignedEvPoints, randomizeNumber(20));
 
   return generatedNature;
 }

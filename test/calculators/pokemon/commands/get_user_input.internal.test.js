@@ -70,6 +70,7 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
         sinon.restore();
       });
     });
+
     describe('formatToNum()', function () {
       it('it turns an array of string numbers into real numbers', function () {        
         const call = ['1', '2'];
