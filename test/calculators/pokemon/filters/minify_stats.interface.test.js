@@ -9,7 +9,7 @@ describe('calculators/pokemon/filters/minify_stats.js', function () {
       const input = {
         name: 'Test',
         level: 10,
-        baseHp: 20,
+        baseHitPoints: 20,
         baseAttack: 30,
         baseDefense: 44,
         baseSpecialAttack: 50,
@@ -20,7 +20,7 @@ describe('calculators/pokemon/filters/minify_stats.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 2,
+        baseHitPoints: 2,
         baseAttack: 3,
         baseDefense: 4,
         baseSpecialAttack: 5,

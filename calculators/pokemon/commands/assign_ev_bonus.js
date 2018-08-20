@@ -6,7 +6,7 @@ const assign_ev_bonus = function (stats_blob, randomizeNum) {
     let num = randomizeNum(6);
     
     if (num === 1) {
-      new_stats_blob.baseHp++;
+      new_stats_blob.baseHitPoints++;
     } else if (num === 2) {
       new_stats_blob.baseAttack++;
     } else if (num === 3) {

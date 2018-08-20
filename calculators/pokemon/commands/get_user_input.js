@@ -8,7 +8,7 @@ const getUserInput = (input) => {
   return {
     name: input[0],
     level: inputToInt[0],
-    baseHp: inputToInt[1],
+    baseHitPoints: inputToInt[1],
     baseAttack: inputToInt[2],
     baseDefense: inputToInt[3],
     baseSpecialAttack: inputToInt[4],

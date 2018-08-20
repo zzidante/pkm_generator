@@ -20,7 +20,7 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 11,
+        baseHitPoints: 11,
         baseAttack: 12,
         baseDefense: 13,
         baseSpecialAttack: 14,

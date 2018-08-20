@@ -8,7 +8,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
     const input = {
       name: 'Test',
       level: 10,
-      baseHp: 1,
+      baseHitPoints: 1,
       baseAttack: 1,
       baseDefence: 1,
       baseSpecialAttack: 1,
@@ -16,11 +16,11 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       baseSpeed: 1,
     };
 
-    it('adds to baseHp', function () {
+    it('adds to baseHitPoints', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 11,
+        baseHitPoints: 11,
         baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 1,
@@ -37,7 +37,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 1,
+        baseHitPoints: 1,
         baseAttack: 11,
         baseDefence: 1,
         baseSpecialAttack: 1,
@@ -53,7 +53,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 1,
+        baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 11,
         baseSpecialAttack: 1,
@@ -69,7 +69,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 1,
+        baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 11,
@@ -85,7 +85,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 1,
+        baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 1,
@@ -101,7 +101,7 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHp: 1,
+        baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 1,
