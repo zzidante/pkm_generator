@@ -23,6 +23,7 @@ describe('calculators/pokemon/commands/derive_affinity.js', function () {
 
       assert.equal(results, expectedResults);
     });
+
     it('third lowest affinity returns 24', function () {
       const input = { baseStat: 12, level: 99 };
 
@@ -32,6 +33,7 @@ describe('calculators/pokemon/commands/derive_affinity.js', function () {
 
       assert.equal(results, expectedResults);
     });
+
     it('fourth lowest affinity returns 33', function () {
       const input = { baseStat: 18, level: 99 };
 
@@ -41,6 +43,7 @@ describe('calculators/pokemon/commands/derive_affinity.js', function () {
 
       assert.equal(results, expectedResults);
     });
+
     it('highest affinity returns 49', function () {
       const input = { baseStat: 19, level: 99 };
 

@@ -37,7 +37,7 @@ module.exports = {
   moves: [
     { name: 'heavy slam', level: 1 },
     { name: 'tackle', level: 1 },
-    { name: 'defense curl', level: 1 },
+    { name: 'defence curl', level: 1 },
     { name: 'charge', level: 1 },
     { name: 'rock polish', level: 1 },
     { name: 'charge', level: 4 },

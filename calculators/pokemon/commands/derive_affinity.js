@@ -1,8 +1,8 @@
-// let validateIsNumber = require('../../../../helpers/validate_is_number.js').validateIsNumber;
+let validateIsNumber = require('../../../helpers/validate_is_number.js');
 
 const internalMethods = {
   affinityCalculation: function ({baseStat: stat, level: level}) {
-    // validateIsNumber(stat, level);
+    validateIsNumber(stat, level);
 
     if (stat <= 3) {
       return Math.floor(level / 6);
@@ -15,7 +15,7 @@ const internalMethods = {
     } else if (stat >= 19) {
       return Math.floor(level / 2);
     } else {
-      throw new Error(`stat input is invalid: ${stat}`);
+      throw new Error(`unhandled error - stat ${stat} - level: ${level}`);
     }
   },
 };
@@ -23,22 +23,22 @@ const internalMethods = {
 const deriveAffinity = function (pokemonObj) {
   return Object.assign(
     {
-      affinityHitPoints: this.affinityCalculation(
+      affinityHitPoints: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseHitPoints}
       ),
-      affinityAttack: this.affinityCalculation(
+      affinityAttack: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseAttack}
       ),
-      affinityDefense: this.affinityCalculation(
+      affinityDefence: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseDefence}
       ),
-      affinitySpecialAttack: this.affinityCalculation(
+      affinitySpecialAttack: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseSpecialAttack}
       ),
-      affinitySpecialDefense: this.affinityCalculation(
+      affinitySpecialDefence: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseSpecialDefence}
       ),
-      affinitySpeed: this.affinityCalculation(
+      affinitySpeed: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseSpeed}
       ),
     },

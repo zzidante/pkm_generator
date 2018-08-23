@@ -38,7 +38,7 @@ module.exports = {
     { name: 'double-edge', level: 1 },
     { name: 'play rough', level: 1 },
     { name: 'sing', level: 1 },
-    { name: 'defense curl', level: 1 },
+    { name: 'defence curl', level: 1 },
     { name: 'disable', level: 1 },
     { name: 'double slap', level: 1 },
   ],

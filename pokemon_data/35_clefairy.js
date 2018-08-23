@@ -42,7 +42,7 @@ module.exports = {
     { name: 'encore', level: 1 },
     { name: 'sing', level: 7 },
     { name: 'double slap', level: 10 },
-    { name: 'defense curl', level: 13 },
+    { name: 'defence curl', level: 13 },
     { name: 'follow me', level: 16 },
     { name: 'bestow', level: 19 },
     { name: 'wake-up slap', level: 22 },

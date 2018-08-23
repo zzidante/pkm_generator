@@ -20,12 +20,18 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
-        baseHitPoints: 11,
+        baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 1,
         baseSpecialDefence: 1,
         baseSpeed: 1,
+        eVHitPoints: 10,
+        eVAttack: 0,
+        eVDefence: 0,
+        eVSpecialAttack: 0,
+        eVSpecialDefence: 0,
+        eVSpeed: 0,
       };
 
       const randomizeNumber = function() { return 1; };
@@ -38,27 +44,40 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
         name: 'Test',
         level: 10,
         baseHitPoints: 1,
-        baseAttack: 11,
+        baseAttack: 1,
         baseDefence: 1,
         baseSpecialAttack: 1,
         baseSpecialDefence: 1,
         baseSpeed: 1,
+        eVHitPoints: 0,
+        eVAttack: 10,
+        eVDefence: 0,
+        eVSpecialAttack: 0,
+        eVSpecialDefence: 0,
+        eVSpeed: 0,
       };
 
       const randomizeNumber = function() { return 2; };
       const results = assignEvBonuses(input, randomizeNumber);
       assert.deepEqual(results, expectedResults);
     });
+
     it('adds to baseDefence', function () {
       const expectedResults = {
         name: 'Test',
         level: 10,
         baseHitPoints: 1,
         baseAttack: 1,
-        baseDefence: 11,
+        baseDefence: 1,
         baseSpecialAttack: 1,
         baseSpecialDefence: 1,
         baseSpeed: 1,
+        eVHitPoints: 0,
+        eVAttack: 0,
+        eVDefence: 10,
+        eVSpecialAttack: 0,
+        eVSpecialDefence: 0,
+        eVSpeed: 0,
       };
 
       const randomizeNumber = function() { return 3; };
@@ -72,31 +91,22 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
         baseHitPoints: 1,
         baseAttack: 1,
         baseDefence: 1,
-        baseSpecialAttack: 11,
+        baseSpecialAttack: 1,
         baseSpecialDefence: 1,
         baseSpeed: 1,
+        eVHitPoints: 0,
+        eVAttack: 0,
+        eVDefence: 0,
+        eVSpecialAttack: 10,
+        eVSpecialDefence: 0,
+        eVSpeed: 0,
       };
 
       const randomizeNumber = function() { return 4; };
       const results = assignEvBonuses(input, randomizeNumber);
       assert.deepEqual(results, expectedResults);
     });
-    it('adds to baseSpecialDefence', function () {
-      const expectedResults = {
-        name: 'Test',
-        level: 10,
-        baseHitPoints: 1,
-        baseAttack: 1,
-        baseDefence: 1,
-        baseSpecialAttack: 1,
-        baseSpecialDefence: 11,
-        baseSpeed: 1,
-      };
 
-      const randomizeNumber = function() { return 5; };
-      const results = assignEvBonuses(input, randomizeNumber);
-      assert.deepEqual(results, expectedResults);
-    });
     it('adds to baseSpecialDefence', function () {
       const expectedResults = {
         name: 'Test',
@@ -106,14 +116,44 @@ describe('calculators/pokemon/commands/assign_ev_bonus.js', function () {
         baseDefence: 1,
         baseSpecialAttack: 1,
         baseSpecialDefence: 1,
-        baseSpeed: 11,
+        baseSpeed: 1,
+        eVHitPoints: 0,
+        eVAttack: 0,
+        eVDefence: 0,
+        eVSpecialAttack: 0,
+        eVSpecialDefence: 10,
+        eVSpeed: 0,
+      };
+
+      const randomizeNumber = function() { return 5; };
+      const results = assignEvBonuses(input, randomizeNumber);
+      assert.deepEqual(results, expectedResults);
+    });
+
+    it('adds to baseSpecialDefence', function () {
+      const expectedResults = {
+        name: 'Test',
+        level: 10,
+        baseHitPoints: 1,
+        baseAttack: 1,
+        baseDefence: 1,
+        baseSpecialAttack: 1,
+        baseSpecialDefence: 1,
+        baseSpeed: 1,
+        eVHitPoints: 0,
+        eVAttack: 0,
+        eVDefence: 0,
+        eVSpecialAttack: 0,
+        eVSpecialDefence: 0,
+        eVSpeed: 10,
       };
 
       const randomizeNumber = function() { return 6; };
       const results = assignEvBonuses(input, randomizeNumber);
       assert.deepEqual(results, expectedResults);
     });
-    it('adds to baseSpecialDefence', function () {
+
+    it('unhandled number throws an error', function () {
       const expectedResults = 'error - make sure to pass in number randomizer (one to six) as a callback';
 
       const randomizeNumber = function() { return 7; };

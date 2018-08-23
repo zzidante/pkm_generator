@@ -10,9 +10,9 @@ const getUserInput = (input) => {
     level: inputToInt[0],
     baseHitPoints: inputToInt[1],
     baseAttack: inputToInt[2],
-    baseDefense: inputToInt[3],
+    baseDefence: inputToInt[3],
     baseSpecialAttack: inputToInt[4],
-    baseSpecialDefense: inputToInt[5],
+    baseSpecialDefence: inputToInt[5],
     baseSpeed: inputToInt[6],
   };
 };

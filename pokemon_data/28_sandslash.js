@@ -37,7 +37,7 @@ module.exports = {
   moves: [
     { name: 'scratch', level: 1 },
     { name: 'crush claw', level: 1 },
-    { name: 'defense curl', level: 1 },
+    { name: 'defence curl', level: 1 },
     { name: 'sand attack', level: 1 },
     { name: 'poison sting', level: 1 },
     { name: 'crush claw', level: -1 },

@@ -46,7 +46,7 @@ module.exports = {
     { name: 'aurora beam', level: 32 },
     { name: 'whirlpool', level: 37 },
     { name: 'brine', level: 40 },
-    { name: 'iron defense', level: 44 },
+    { name: 'iron defence', level: 44 },
     { name: 'ice beam', level: 52 },
     { name: 'shell smash', level: 56 },
     { name: 'hydro pump', level: 61 },

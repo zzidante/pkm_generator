@@ -36,7 +36,7 @@ module.exports = {
   weight: 5.5,
   moves: [
     { name: 'sing', level: 1 },
-    { name: 'defense curl', level: 3 },
+    { name: 'defence curl', level: 3 },
     { name: 'pound', level: 5 },
     { name: 'play nice', level: 9 },
     { name: 'disarming voice', level: 11 },

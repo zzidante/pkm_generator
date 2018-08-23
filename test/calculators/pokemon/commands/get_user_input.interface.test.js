@@ -22,9 +22,9 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
         level: 10,
         baseHitPoints: 11,
         baseAttack: 12,
-        baseDefense: 13,
+        baseDefence: 13,
         baseSpecialAttack: 14,
-        baseSpecialDefense: 15,
+        baseSpecialDefence: 15,
         baseSpeed: 16,
       };
 

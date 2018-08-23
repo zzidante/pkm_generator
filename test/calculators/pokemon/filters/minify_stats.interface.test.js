@@ -11,9 +11,9 @@ describe('calculators/pokemon/filters/minify_stats.js', function () {
         level: 10,
         baseHitPoints: 20,
         baseAttack: 30,
-        baseDefense: 44,
+        baseDefence: 44,
         baseSpecialAttack: 50,
-        baseSpecialDefense: 56,
+        baseSpecialDefence: 56,
         baseSpeed: 89,
       };
 
@@ -22,9 +22,9 @@ describe('calculators/pokemon/filters/minify_stats.js', function () {
         level: 10,
         baseHitPoints: 2,
         baseAttack: 3,
-        baseDefense: 4,
+        baseDefence: 4,
         baseSpecialAttack: 5,
-        baseSpecialDefense: 6,
+        baseSpecialDefence: 6,
         baseSpeed: 9,
       };
 
