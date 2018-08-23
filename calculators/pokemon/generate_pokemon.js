@@ -10,10 +10,15 @@ function calculate_new_pokemon() {
   const userInput = getUserInput(process.argv.slice(2));
   const minifiedStats = minifyStats(userInput);
   const assignedEvPoints = assignEvBonus(minifiedStats, randomizeNumber);
-  console.log(assignedEvPoints)
-  // const generatedNature = fetchNature(assignedEvPoints, randomizeNumber(20));
-  // const derivedAffinity = deriveAffinity(generatedNature);
-  // const calculatedStatTotals = calculateStatTotals(derivedAffinity);
+  const generatedNature = fetchNature(
+    { 
+      pokemonObj: assignedEvPoints, 
+      rolledNature: randomizeNumber(20)
+    }
+  );
+  const derivedAffinity = deriveAffinity(generatedNature);
+  const calculatedStatTotals = calculateStatTotals(derivedAffinity);
+  console.log(calculatedStatTotals);
 
   // return calculatedStatTotals;
 }

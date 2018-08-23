@@ -1,8 +1,8 @@
 const fetchNature = function(
   {
-    pokemonObj: pokemonObj, 
-    rolledNature: rolledNature, 
-    dataOnly: dataOnly = false
+    pokemonObj, 
+    rolledNature, 
+    dataOnly = false
   }
 ) {
   if (rolledNature === 1) {
@@ -149,11 +149,11 @@ const internalMethods = {
     }
 
     return Object.assign(
+      pokemonObj,      
       {
         natureBoost: this.natureStatChangeByLevel({level: pokemonObj.level, advantage: true}),
         natureCut: this.natureStatChangeByLevel({level: pokemonObj.level, advantage: false}),
-      },
-      pokemonObj
+      }
     );
   }
 };

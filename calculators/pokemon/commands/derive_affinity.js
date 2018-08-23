@@ -22,6 +22,7 @@ const internalMethods = {
 
 const deriveAffinity = function (pokemonObj) {
   return Object.assign(
+    pokemonObj,
     {
       affinityHitPoints: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseHitPoints}
@@ -41,8 +42,7 @@ const deriveAffinity = function (pokemonObj) {
       affinitySpeed: internalMethods.affinityCalculation(
         {level: pokemonObj.level, baseStat: pokemonObj.baseSpeed}
       ),
-    },
-    pokemonObj
+    }
   );
 };
 
