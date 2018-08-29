@@ -17,8 +17,9 @@ function calculate_new_pokemon() {
     }
   );
   const derivedAffinity = deriveAffinity(generatedNature);
-  const calculatedStatTotals = calculateStatTotals(derivedAffinity);
-  console.log(calculatedStatTotals);
+  console.log(derivedAffinity
+  );
+  // console.log(calculatedStatTotals);
 
   // return calculatedStatTotals;
 }
