@@ -1,0 +1,51 @@
+module.exports = {
+  name: 'remoraid',
+  pokedex: 223,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'remoraid', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'octillery', level: 25, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 35,
+    atk: 65,
+    def: 35,
+    spAtk: 65,
+    spDef: 35,
+    spd: 65,
+  },
+  type: ['water'],
+  catchRate: 24.8,
+  experienceYield: 60,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'spAtk', value: 1 },
+  ],
+  abilities: [
+    {name: 'hustle', hidden: false },
+    {name: 'sniper', hidden: false },
+    {name: 'moody', hidden: true },
+  ],
+  height: 0.6,
+  weight: 12.0,
+  moves: [
+    { name: 'water gun', level: 1 },
+    { name: 'lock-on', level: 6 },
+    { name: 'psybeam', level: 10 },
+    { name: 'aurora beam', level: 14 },
+    { name: 'bubblebeam', level: 18 },
+    { name: 'focus energy', level: 22 },
+    { name: 'water pulse', level: 26 },
+    { name: 'signal beam', level: 30 },
+    { name: 'ice beam', level: 34 },
+    { name: 'bullet seed', level: 38 },
+    { name: 'hydro pump', level: 42 },
+    { name: 'hyper beam', level: 46 },
+    { name: 'soak', level: 50 },
+  ],
+};

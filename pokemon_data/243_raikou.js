@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'raikou',
+  pokedex: 243,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'raikou', level: 0, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 90,
+    atk: 85,
+    def: 75,
+    spAtk: 115,
+    spDef: 100,
+    spd: 115,
+  },
+  type: ['electric'],
+  catchRate: 0.4,
+  experienceYield: 261,
+  genderRatio: [false],
+  evYield: [
+    { type: 'spAtk', value: 1 },
+    { type: 'spd', value: 2 },
+  ],
+  abilities: [
+    {name: 'pressure', hidden: false },
+    {name: 'inner focus', hidden: true },
+  ],
+  height: 1.9,
+  weight: 178.0,
+  moves: [
+    { name: 'extrasensory', level: 1 },
+    { name: 'discharge', level: 1 },
+    { name: 'bite', level: 1 },
+    { name: 'leer', level: 1 },
+    { name: 'thunder shock', level: 8 },
+    { name: 'roar', level: 15 },
+    { name: 'quick atack', level: 22 },
+    { name: 'spark', level: 29 },
+    { name: 'reflect', level: 36 },
+    { name: 'crunch', level: 43 },
+    { name: 'thunder fang', level: 50 },
+    { name: 'discharge', level: 57 },
+    { name: 'extrasensory', level: 64 },
+    { name: 'rain dance', level: 71 },
+    { name: 'calm mind', level: 78 },
+    { name: 'thunder', level: 85 },
+  ],
+};

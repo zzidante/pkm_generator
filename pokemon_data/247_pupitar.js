@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'pupitar',
+  pokedex: 247,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 2,
+    maxEvolutionSteps: 3,
+    details: [
+      {  evolutionStep: 1, form: 'larvitar', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'pupitar', level: 30, condition: false },
+      {  evolutionStep: 3, form: 'tyranitar', level: 55, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 70,
+    atk: 84,
+    def: 70,
+    spAtk: 65,
+    spDef: 70,
+    spd: 51,
+  },
+  type: ['rock', 'ground'],
+  catchRate: 5.9,
+  experienceYield: 144,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'atk', value: 2 },
+  ],
+  abilities: [
+    {name: 'shed skin', hidden: false },
+  ],
+  height: 1.2,
+  weight: 152.0,
+  moves: [
+    { name: 'bite', level: 1 },
+    { name: 'leer', level: 1 },
+    { name: 'sandstorm', level: 1 },
+    { name: 'screech', level: 1 },
+    { name: 'sandstorm', level: 5 },
+    { name: 'screech', level: 10 },
+    { name: 'chip away', level: 14 },
+    { name: 'rock slide', level: 19 },
+    { name: 'scary face', level: 23 },
+    { name: 'thrash', level: 28 },
+    { name: 'dark pulse', level: 34 },
+    { name: 'payback', level: 41 },
+    { name: 'crunch', level: 47 },
+    { name: 'earthquake', level: 54 },
+    { name: 'stone edge', level: 60 },
+    { name: 'hyper beam', level: 67 },
+  ],
+};

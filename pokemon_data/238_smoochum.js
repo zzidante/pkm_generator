@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'smoochum',
+  pokedex: 238,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'smoochum', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'jynx', level: 30, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 45,
+    atk: 30,
+    def: 15,
+    spAtk: 85,
+    spDef: 65,
+    spd: 65,
+  },
+  type: ['ice', 'psychic'],
+  catchRate: 5.9,
+  experienceYield: 61,
+  genderRatio: [{m: 0}, {f: 100}],
+  evYield: [
+    { type: 'spAtk', value: 1 },
+  ],
+  abilities: [
+    {name: 'oblivious', hidden: false },
+    {name: 'forewarn', hidden: false },
+    {name: 'hydration', hidden: true },
+  ],
+  height: 0.4,
+  weight: 6.0,
+  moves: [
+    { name: 'pound', level: 1 },
+    { name: 'lick', level: 5 },
+    { name: 'sweet kiss', level: 8 },
+    { name: 'powder snow', level: 11 },
+    { name: 'confusion', level: 15 },
+    { name: 'sing', level: 18 },
+    { name: 'heart stamp', level: 21 },
+    { name: 'mean look', level: 25 },
+    { name: 'fake tears', level: 28 },
+    { name: 'lucky chant', level: 31 },
+    { name: 'avalanche', level: 35 },
+    { name: 'psychic', level: 38 },
+    { name: 'copycat', level: 41 },
+    { name: 'perish song', level: 45 },
+    { name: 'blizzard', level: 48 },
+  ],
+};

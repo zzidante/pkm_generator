@@ -1,0 +1,50 @@
+module.exports = {
+  name: 'miltank',
+  pokedex: 241,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'miltank', level: 0, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 95,
+    atk: 80,
+    def: 105,
+    spAtk: 40,
+    spDef: 70,
+    spd: 100,
+  },
+  type: ['normal'],
+  catchRate: 5.9,
+  experienceYield: 172,
+  genderRatio: [{m: 0}, {f: 100}],
+  evYield: [
+    { type: 'def', value: 2 },
+  ],
+  abilities: [
+    {name: 'thick fat', hidden: false },
+    {name: 'scrappy', hidden: false },
+    {name: 'sap sipper', hidden: true },
+  ],
+  height: 1.2,
+  weight: 75.5,
+  moves: [
+    { name: 'tackle', level: 1 },
+    { name: 'growl', level: 3 },
+    { name: 'defense curl', level: 5 },
+    { name: 'stomp', level: 8 },
+    { name: 'milk drink', level: 11 },
+    { name: 'bide', level: 15 },
+    { name: 'rollout', level: 19 },
+    { name: 'body slam', level: 24 },
+    { name: 'zen headbutt', level: 29 },
+    { name: 'captivate', level: 35 },
+    { name: 'gyro ball', level: 41 },
+    { name: 'heal bell', level: 48 },
+    { name: 'wake-up slap', level: 50 },
+  ],
+};

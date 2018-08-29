@@ -1,0 +1,51 @@
+module.exports = {
+  name: 'horsea',
+  pokedex: 116,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 3,
+    details: [
+      {  evolutionStep: 1, form: 'horsea', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'seadra', level: 32, condition: false },
+      {  evolutionStep: 3, form: 'kingdra', level: false, condition: ['trade', 'dragon scale'] },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 30,
+    atk: 40,
+    def: 70,
+    spAtk: 70,
+    spDef: 25,
+    spd: 60,
+  },
+  type: ['water'],
+  catchRate: 29.4,
+  experienceYield: 59,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'spAtk', value: 1 },
+  ],
+  abilities: [
+    {name: 'swift swim', hidden: false },
+    {name: 'sniper', hidden: false },
+    {name: 'damp', hidden: true },
+  ],
+  height: 0.4,
+  weight: 8.0,
+  moves: [
+    { name: 'bubble', level: 1 },
+    { name: 'smokescreen', level: 5 },
+    { name: 'leer', level: 9 },
+    { name: 'water gun', level: 13 },
+    { name: 'twister', level: 17 },
+    { name: 'bubble beam', level: 21 },
+    { name: 'focus energy', level: 26 },
+    { name: 'brine', level: 31 },
+    { name: 'agility', level: 36 },
+    { name: 'dragon pulse', level: 41 },
+    { name: 'dragon dance', level: 46 },
+    { name: 'hydro pump', level: 52 },
+  ],
+};

@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'mantyke',
+  pokedex: 458,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'mantyke', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'mantine', level: true, condition: 'remoraid in party' },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 45,
+    atk: 20,
+    def: 50,
+    spAtk: 60,
+    spDef: 120,
+    spd: 50,
+  },
+  type: ['water', 'flying'],
+  catchRate: 3.3,
+  experienceYield: 69,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'spDef', value: 1 },
+  ],
+  abilities: [
+    {name: 'swift swim', hidden: false },
+    {name: 'water absorb', hidden: false },
+    {name: 'water veil', hidden: true },
+  ],
+  height: 1.0,
+  weight: 65.0,
+  moves: [
+    { name: 'tackle', level: 1 },
+    { name: 'bubble', level: 1 },
+    { name: 'supersonic', level: 3 },
+    { name: 'bubble beam', level: 7 },
+    { name: 'confuse ray', level: 11 },
+    { name: 'wing attack', level: 14 },
+    { name: 'headbutt', level: 16 },
+    { name: 'water pulse', level: 19 },
+    { name: 'wide guard', level: 23 },
+    { name: 'take down', level: 27 },
+    { name: 'agility', level: 32 },
+    { name: 'air slash', level: 36 },
+    { name: 'aqua ring', level: 39 },
+    { name: 'bounce', level: 46 },
+    { name: 'hydro pump', level: 49 },
+  ],
+};

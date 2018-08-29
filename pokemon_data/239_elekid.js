@@ -1,0 +1,52 @@
+module.exports = {
+  name: 'elekid',
+  pokedex: 239,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 3,
+    details: [
+      {  evolutionStep: 1, form: 'elekid', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'electabuzz', level: 30, condition: false },
+      {  evolutionStep: 3, form: 'electivire', level: false, condition: ['trade', 'electirizer'] },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 45,
+    atk: 63,
+    def: 37,
+    spAtk: 65,
+    spDef: 55,
+    spd: 95,
+  },
+  type: ['electric'],
+  catchRate: 5.9,
+  experienceYield: 72,
+  genderRatio: [{m: 75}, {f: 25}],
+  evYield: [
+    { type: 'spd', value: 1 },
+  ],
+  abilities: [
+    {name: 'static', hidden: false },
+    {name: 'vital spirit', hidden: true },
+  ],
+  height: 0.6,
+  weight: 23.5,
+  moves: [
+    { name: 'quick attack', level: 1 },
+    { name: 'leer', level: 1 },
+    { name: 'thunder shock', level: 5 },
+    { name: 'low kick', level: 8 },
+    { name: 'swift', level: 12 },
+    { name: 'shock wave', level: 15 },
+    { name: 'thunder wave', level: 19 },
+    { name: 'electro ball', level: 22 },
+    { name: 'light screen', level: 26 },
+    { name: 'thunder punch', level: 29 },
+    { name: 'discharge', level: 33 },
+    { name: 'screech', level: 36 },
+    { name: 'thunderbolt', level: 40 },
+    { name: 'thunder', level: 43 },
+  ],
+};

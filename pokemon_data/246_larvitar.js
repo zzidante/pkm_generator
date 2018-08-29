@@ -1,0 +1,52 @@
+module.exports = {
+  name: 'larvitar',
+  pokedex: 246,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 3,
+    details: [
+      {  evolutionStep: 1, form: 'larvitar', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'pupitar', level: 30, condition: false },
+      {  evolutionStep: 3, form: 'tyranitar', level: 55, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 50,
+    atk: 64,
+    def: 50,
+    spAtk: 45,
+    spDef: 50,
+    spd: 41,
+  },
+  type: ['rock', 'ground'],
+  catchRate: 5.9,
+  experienceYield: 60,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'atk', value: 1 },
+  ],
+  abilities: [
+    {name: 'guts', hidden: false },
+    {name: 'sand veil', hidden: true },
+  ],
+  height: 0.6,
+  weight: 72.0,
+  moves: [
+    { name: 'bite', level: 1 },
+    { name: 'leer', level: 1 },
+    { name: 'sandstorm', level: 5 },
+    { name: 'screech', level: 10 },
+    { name: 'chip away', level: 14 },
+    { name: 'rock slide', level: 19 },
+    { name: 'scary face', level: 23 },
+    { name: 'thrash', level: 28 },
+    { name: 'dark pulse', level: 32 },
+    { name: 'payback', level: 37 },
+    { name: 'crunch', level: 41 },
+    { name: 'earthquake', level: 46 },
+    { name: 'stone edge', level: 50 },
+    { name: 'hyper beam', level: 55 },
+  ],
+};

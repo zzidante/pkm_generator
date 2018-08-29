@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'snubbull',
+  pokedex: 209,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'snubbull', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'granbull', level: 23, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 60,
+    atk: 80,
+    def: 50,
+    spAtk: 40,
+    spDef: 40,
+    spd: 30,
+  },
+  type: ['fairy'],
+  catchRate: 24.8,
+  experienceYield: 60,
+  genderRatio: [{m: 25}, {f: 75}],
+  evYield: [
+    { type: 'atk', value: 1 },
+  ],
+  abilities: [
+    {name: 'intimidate', hidden: false },
+    {name: 'run away', hidden: false },
+    {name: 'rattled', hidden: true },
+  ],
+  height: 0.6,
+  weight: 7.8,
+  moves: [
+    { name: 'ice fang', level: 1 },
+    { name: 'fire fang', level: 1 },
+    { name: 'thunder fang', level: 1 },
+    { name: 'tackle', level: 1 },
+    { name: 'scary face', level: 1 },
+    { name: 'tail whip', level: 1 },
+    { name: 'charm', level: 1 },
+    { name: 'bite', level: 7 },
+    { name: 'lick', level: 13 },
+    { name: 'headbutt', level: 19 },
+    { name: 'roar', level: 25 },
+    { name: 'rage', level: 31 },
+    { name: 'play rough', level: 37 },
+    { name: 'payback', level: 43 },
+    { name: 'crunch', level: 49 },
+  ],
+};

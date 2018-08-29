@@ -1,0 +1,51 @@
+module.exports = {
+  name: 'pineco',
+  pokedex: 204,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'pineco', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'forretress', level: 31, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 50,
+    atk: 65,
+    def: 90,
+    spAtk: 35,
+    spDef: 35,
+    spd: 15,
+  },
+  type: ['bug'],
+  catchRate: 24.8,
+  experienceYield: 58,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'def', value: 1 },
+  ],
+  abilities: [
+    {name: 'sturdy', hidden: false },
+    {name: 'overcoat', hidden: true },
+  ],
+  height: 0.6,
+  weight: 7.2,
+  moves: [
+    { name: 'tackle', level: 1 },
+    { name: 'protect', level: 1 },
+    { name: 'self-destruct', level: 6 },
+    { name: 'bug bite', level: 9 },
+    { name: 'take down', level: 12 },
+    { name: 'rapid spin', level: 17 },
+    { name: 'bide', level: 20 },
+    { name: 'natural gift', level: 23 },
+    { name: 'spikes', level: 28 },
+    { name: 'payback', level: 31 },
+    { name: 'explosion', level: 34 },
+    { name: 'iron defense', level: 39 },
+    { name: 'gyro ball', level: 42 },
+    { name: 'double-edge', level: 45 },
+  ],
+};

@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'gligar',
+  pokedex: 207,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'gligar', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'gliscor', level: true, condition: ['razor fang', 'night'] },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 65,
+    atk: 75,
+    def: 105,
+    spAtk: 35,
+    spDef: 65,
+    spd: 85,
+  },
+  type: ['ground', 'flying'],
+  catchRate: 7.8,
+  experienceYield: 86,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'def', value: 1 },
+  ],
+  abilities: [
+    {name: 'hyper cutter', hidden: false },
+    {name: 'sand veil', hidden: false },
+    {name: 'immunity', hidden: true },
+  ],
+  height: 1.1,
+  weight: 64.8,
+  moves: [
+    { name: 'poison sting', level: 1 },
+    { name: 'sand attack', level: 4 },
+    { name: 'harden', level: 7 },
+    { name: 'knock off', level: 10 },
+    { name: 'quick attack', level: 13 },
+    { name: 'fury cutter', level: 16 },
+    { name: 'feint attack', level: 19 },
+    { name: 'acrobatics', level: 22 },
+    { name: 'slash', level: 27 },
+    { name: 'u-turn', level: 30 },
+    { name: 'screech', level: 35 },
+    { name: 'x-scissor', level: 40 },
+    { name: 'sky uppercut', level: 45 },
+    { name: 'swords dance', level: 50 },
+    { name: 'guillotine', level: 55 },
+  ],
+};

@@ -1,0 +1,52 @@
+module.exports = {
+  name: 'lugia',
+  pokedex: 249,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'lugia', level: 0, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 106,
+    atk: 90,
+    def: 130,
+    spAtk: 90,
+    spDef: 154,
+    spd: 110,
+  },
+  type: ['psychic', 'flying'],
+  catchRate: 0.4,
+  experienceYield: 306,
+  genderRatio: [false],
+  evYield: [
+    { type: 'spDef', value: 3 },
+  ],
+  abilities: [
+    {name: 'pressure', hidden: false },
+    {name: 'multiscale', hidden: true },
+  ],
+  height: 5.2,
+  weight: 216.0,
+  moves: [
+    { name: 'whirlwind', level: 1 },
+    { name: 'weather ball', level: 1 },
+    { name: 'gust', level: 9 },
+    { name: 'dragon rush', level: 15 },
+    { name: 'extrasensory', level: 23 },
+    { name: 'rain dance', level: 29 },
+    { name: 'hydro pump', level: 37 },
+    { name: 'aeroblast', level: 43 },
+    { name: 'punishment', level: 50 },
+    { name: 'ancient power', level: 57 },
+    { name: 'safeguard', level: 65 },
+    { name: 'recover', level: 71 },
+    { name: 'future sight', level: 79 },
+    { name: 'natural gift', level: 85 },
+    { name: 'calm mind', level: 93 },
+    { name: 'sky attack', level: 99 },
+  ],
+};

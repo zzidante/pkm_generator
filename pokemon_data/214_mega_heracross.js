@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'mega_heracross',
+  pokedex: 214,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'heracross', level: 0, condition: false },
+    ]
+  },
+  variant: 'standard',
+  stats: {
+    hp: 80,
+    atk: 185,
+    def: 115,
+    spAtk: 40,
+    spDef: 105,
+    spd: 75,
+  },
+  type: ['bug', 'fighting'],
+  catchRate: 5.9,
+  experienceYield: 210,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'atk', value: 2 },
+  ],
+  abilities: [
+    {name: 'skill link', hidden: false },
+  ],
+  height: 1.7,
+  weight: 62.5,
+  moves: [
+    { name: 'arm thrust', level: 1 },
+    { name: 'bullet seed', level: 1 },
+    { name: 'night slash', level: 1 },
+    { name: 'tackle', level: 1 },
+    { name: 'leer', level: 1 },
+    { name: 'horn attack', level: 1 },
+    { name: 'endure', level: 1 },
+    { name: 'feint', level: 7 },
+    { name: 'aerial ace', level: 10 },
+    { name: 'chip away', level: 16 },
+    { name: 'counter', level: 19 },
+    { name: 'fury attack', level: 25 },
+    { name: 'brick break', level: 28 },
+    { name: 'pin missile', level: 31 },
+    { name: 'take down', level: 34 },
+    { name: 'megahorn', level: 37 },
+    { name: 'close combat', level: 43 },
+    { name: 'reversal', level: 46 },
+  ],
+};

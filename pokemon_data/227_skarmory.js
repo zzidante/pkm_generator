@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'skarmory',
+  pokedex: 227,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'skarmory', level: 0, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 65,
+    atk: 80,
+    def: 140,
+    spAtk: 40,
+    spDef: 70,
+    spd: 70,
+  },
+  type: ['steel', 'flying'],
+  catchRate: 3.3,
+  experienceYield: 163,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'def', value: 2 },
+  ],
+  abilities: [
+    {name: 'keen eye', hidden: false },
+    {name: 'sturdy', hidden: false },
+    {name: 'weak armor', hidden: true },
+  ],
+  height: 1.7,
+  weight: 50.5,
+  moves: [
+    { name: 'leer', level: 1 },
+    { name: 'peck', level: 1 },
+    { name: 'sand attack', level: 6 },
+    { name: 'metal claw', level: 9 },
+    { name: 'air cutter', level: 12 },
+    { name: 'fury attack', level: 17 },
+    { name: 'feint', level: 20 },
+    { name: 'swift', level: 23 },
+    { name: 'spikes', level: 28 },
+    { name: 'agility', level: 31 },
+    { name: 'steel wing', level: 34 },
+    { name: 'slash', level: 39 },
+    { name: 'metal sound', level: 42 },
+    { name: 'air slash', level: 45 },
+    { name: 'autotomize', level: 50 },
+    { name: 'night slash', level: 53 },
+  ],
+};

@@ -1,0 +1,50 @@
+module.exports = {
+  name: 'misdreavus',
+  pokedex: 200,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'misdreavus', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'mismagius', level: false, condition: 'dusk stone' },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 60,
+    atk: 60,
+    def: 60,
+    spAtk: 85,
+    spDef: 85,
+    spd: 85,
+  },
+  type: ['ghost'],
+  catchRate: 5.9,
+  experienceYield: 87,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'spDef', value: 1 },
+  ],
+  abilities: [
+    {name: 'levitate', hidden: false },
+  ],
+  height: 0.7,
+  weight: 1.0,
+  moves: [
+    { name: 'growl', level: 1 },
+    { name: 'psywave', level: 1 },
+    { name: 'spite', level: 5 },
+    { name: 'astonish', level: 10 },
+    { name: 'confuse ray', level: 14 },
+    { name: 'mean look', level: 19 },
+    { name: 'hex', level: 23 },
+    { name: 'psybeam', level: 28 },
+    { name: 'pain split', level: 32 },
+    { name: 'payback', level: 37 },
+    { name: 'shadow ball', level: 41 },
+    { name: 'perish song', level: 46 },
+    { name: 'grudge', level: 50 },
+    { name: 'power gem', level: 55 },
+  ],
+};

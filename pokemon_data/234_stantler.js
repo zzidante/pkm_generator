@@ -1,0 +1,53 @@
+module.exports = {
+  name: 'stantler',
+  pokedex: 234,
+  evolution: {
+    hasEvolutions: false,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 1,
+    details: [
+      {  evolutionStep: 1, form: 'stantler', level: 0, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 73,
+    atk: 95,
+    def: 62,
+    spAtk: 85,
+    spDef: 65,
+    spd: 85,
+  },
+  type: ['normal'],
+  catchRate: 5.9,
+  experienceYield: 163,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'atk', value: 1 },
+  ],
+  abilities: [
+    {name: 'intimidate', hidden: false },
+    {name: 'frisk', hidden: false },
+    {name: 'sap sipper', hidden: true },
+  ],
+  height: 1.4,
+  weight: 71.2,
+  moves: [
+    { name: 'me first', level: 1 },
+    { name: 'tackle', level: 1 },
+    { name: 'leer', level: 3 },
+    { name: 'astonish', level: 7 },
+    { name: 'hypnosis', level: 10 },
+    { name: 'stomp', level: 13 },
+    { name: 'sand attack', level: 16 },
+    { name: 'take down', level: 21 },
+    { name: 'confuse ray', level: 23 },
+    { name: 'calm mind', level: 27 },
+    { name: 'role play', level: 33 },
+    { name: 'zen headbutt', level: 38 },
+    { name: 'jump kick', level: 43 },
+    { name: 'imprison', level: 49 },
+    { name: 'captivate', level: 50 },
+    { name: 'me first', level: 55 },
+  ],
+};

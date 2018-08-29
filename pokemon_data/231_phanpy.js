@@ -1,0 +1,50 @@
+module.exports = {
+  name: 'phanpy',
+  pokedex: 231,
+  evolution: {
+    hasEvolutions: true,
+    currentEvolutionStep: 1,
+    maxEvolutionSteps: 2,
+    details: [
+      {  evolutionStep: 1, form: 'phanpy', level: 0, condition: false },
+      {  evolutionStep: 2, form: 'donphan', level: 25, condition: false },
+    ]
+  },
+  variant: false,
+  stats: {
+    hp: 90,
+    atk: 60,
+    def: 60,
+    spAtk: 40,
+    spDef: 40,
+    spd: 40,
+  },
+  type: ['ground'],
+  catchRate: 15.7,
+  experienceYield: 66,
+  genderRatio: [{m: 50}, {f: 50}],
+  evYield: [
+    { type: 'hp', value: 1 },
+  ],
+  abilities: [
+    {name: 'pickup', hidden: false },
+    {name: 'sand veil', hidden: true },
+  ],
+  height: 0.5,
+  weight: 33.5,
+  moves: [
+    { name: 'odor sleuth', level: 1 },
+    { name: 'tackle', level: 1 },
+    { name: 'growl', level: 1 },
+    { name: 'defense curl', level: 1 },
+    { name: 'flail', level: 6 },
+    { name: 'rollout', level: 10 },
+    { name: 'natural gift', level: 15 },
+    { name: 'endure', level: 19 },
+    { name: 'slam', level: 24 },
+    { name: 'take down', level: 28 },
+    { name: 'charm', level: 33 },
+    { name: 'last resort', level: 37 },
+    { name: 'double-edge', level: 42 },
+  ],
+};
