@@ -11,8 +11,8 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
         level: 20,
         nature: {
           name: 'hasty',
-          adv: 'spd',
-          disAdv: 'defe',
+          adv: 'speed',
+          disAdv: 'defence',
         },
         natureBoost: 6,
         natureCut: -3
@@ -27,8 +27,8 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
       const input = {pokemonObj: {level: 20}, rolledNature: 10, dataOnly: true};
       const expectedResults = {
         name: 'hasty',
-        adv: 'spd',
-        disAdv: 'defe',
+        adv: 'speed',
+        disAdv: 'defence',
       };
 
       const results = FetchNature(input);

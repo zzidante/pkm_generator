@@ -42,7 +42,6 @@ describe('calculators/pokemon/commands/derive_affinity.js', function () {
         affinitySpeed: 10,
         affinitySpeedRatio: '1/6',
       };
-
       assert.deepEqual(result, expectedResult);
 
       sinon.restore();

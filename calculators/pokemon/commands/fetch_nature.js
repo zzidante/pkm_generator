@@ -8,122 +8,122 @@ const fetchNature = function(
   if (rolledNature === 1) {
     pokemonObj.nature = {
       name: 'lonely',
-      adv: 'atk',
-      disAdv: 'defe'
+      adv: 'attack',
+      disAdv: 'defence'
     };
   } else if (rolledNature === 2) {
     pokemonObj.nature = {
       name: 'brave',
-      adv: 'atk',
-      disAdv: 'spd'
+      adv: 'attack',
+      disAdv: 'speed'
     };
   } else if (rolledNature === 3) {
     pokemonObj.nature = {
       name: 'adament',
-      adv: 'atk',
-      disAdv: 'spAtk'
+      adv: 'attack',
+      disAdv: 'specialAttack'
     };
   } else if (rolledNature === 4) {
     pokemonObj.nature = {
       name: 'naughty',
-      adv: 'atk',
-      disAdv: 'spDefe'
+      adv: 'attack',
+      disAdv: 'specialDefence'
     };
   } else if (rolledNature === 5) {
     pokemonObj.nature = {
       name: 'bold',
-      adv: 'defe',
-      disAdv: 'atk'
+      adv: 'defence',
+      disAdv: 'attack'
     };
   } else if (rolledNature === 6) {
     pokemonObj.nature = {
       name: 'relaxed',
-      adv: 'defe',
-      disAdv: 'spd'
+      adv: 'defence',
+      disAdv: 'speed'
     };
   } else if (rolledNature === 7) {
     pokemonObj.nature = {
       name: 'impish',
-      adv: 'defe',
-      disAdv: 'spAtk'
+      adv: 'defence',
+      disAdv: 'specialAttack'
     };
   } else if (rolledNature === 8) {
     pokemonObj.nature = {
       name: 'lax',
-      adv: 'defe',
+      adv: 'defence',
       disAdv: 'spDef'
     };
   } else if (rolledNature === 9) {
     pokemonObj.nature = {
       name: 'timid',
-      adv: 'spd',
-      disAdv: 'atk'
+      adv: 'speed',
+      disAdv: 'attack'
     };
   } else if (rolledNature === 10) {
     pokemonObj.nature = {
       name: 'hasty',
-      adv: 'spd',
-      disAdv: 'defe'
+      adv: 'speed',
+      disAdv: 'defence'
     };
   } else if (rolledNature === 11) {
     pokemonObj.nature = {
       name: 'jolly',
-      adv: 'spd',
-      disAdv: 'spAtk'
+      adv: 'speed',
+      disAdv: 'specialAttack'
     };
   } else if (rolledNature === 12) {
     pokemonObj.nature = {
       name: 'naive',
-      adv: 'spd',
-      disAdv: 'spDefe'
+      adv: 'speed',
+      disAdv: 'specialDefence'
     };
   } else if (rolledNature === 13) {
     pokemonObj.nature = {
       name: 'modest',
-      adv: 'spAtk',
-      disAdv: 'atk'
+      adv: 'specialAttack',
+      disAdv: 'attack'
     };
   } else if (rolledNature === 14) {
     pokemonObj.nature = {
       name: 'mild',
-      adv: 'spAtk',
-      disAdv: 'defe'
+      adv: 'specialAttack',
+      disAdv: 'defence'
     };
   } else if (rolledNature === 15) {
     pokemonObj.nature = {
       name: 'quiet',
-      adv: 'spAtk',
-      disAdv: 'spd'
+      adv: 'specialAttack',
+      disAdv: 'speed'
     };
   } else if (rolledNature === 16) {
     pokemonObj.nature = {
       name: 'rash',
-      adv: 'spAtk',
-      disAdv: 'spDefe'
+      adv: 'specialAttack',
+      disAdv: 'specialDefence'
     };
   } else if (rolledNature === 17) {
     pokemonObj.nature = {
       name: 'calm',
-      adv: 'spDefe',
-      disAdv: 'atk'
+      adv: 'specialDefence',
+      disAdv: 'attack'
     };
   } else if (rolledNature === 18) {
     pokemonObj.nature = {
       name: 'gentle',
-      adv: 'spDefe',
-      disAdv: 'defe'
+      adv: 'specialDefence',
+      disAdv: 'defence'
     };
   } else if (rolledNature === 19) {
     pokemonObj.nature = {
       name: 'sassy',
-      adv: 'spDefe',
-      disAdv: 'spd'
+      adv: 'specialDefence',
+      disAdv: 'speed'
     };
   } else if (rolledNature === 20) {
     pokemonObj.nature = {
       name: 'careful',
-      adv: 'spDefe',
-      disAdv: 'spAtk'
+      adv: 'specialDefence',
+      disAdv: 'specialAttack'
     };
   } else {
     throw new Error(`rolledNature given: ${rolledNature}. Expected 1 - 20`);
