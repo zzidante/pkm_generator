@@ -90,12 +90,12 @@ describe('calculators/pokemon/commands/calculate_stat_totals.js', function () {
         affinitySpeed: 10,
         affinitySpeedRatio: '1/6',
 
-        hitPointsTotal: 61,
-        attackTotal: 62,
-        defenceTotal: 63,
-        specialAttackTotal: 64,
-        specialDefenceTotal: 65,
-        speedTotal: 66,
+        totalHitPoints: 61,
+        totalAttack: 62,
+        totalDefence: 63,
+        totalSpecialAttack: 64,
+        totalSpecialDefence: 65,
+        totalSpeed: 66,
       };
 
       const spyHitPointCall = spy.getCall(0);

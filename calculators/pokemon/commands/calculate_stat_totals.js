@@ -9,25 +9,27 @@ const calculateStatTotals = function(pokemonObj) {
     nature, natureBoost, natureCut
   } = pokemonObj;
 
+  // need to iterate over each total value and ensure there are #s < 2. Must be 2 in that case
+
   return Object.assign(
     pokemonObj,      
     {
-      hitPointsTotal: (
+      totalHitPoints: (
         baseHitPoints + affinityHitPoints + eVHitPoints + internalMethods.natureFilter('hitPoints', nature, natureBoost, natureCut)
       ),
-      attackTotal: (
+      totalAttack: (
         baseAttack + affinityAttack + eVAttack + internalMethods.natureFilter('attack', nature, natureBoost, natureCut)
       ),
-      defenceTotal: (
+      totalDefence: (
         baseDefence + affinityDefence + eVDefence + + internalMethods.natureFilter('defence', nature, natureBoost, natureCut)
       ),
-      specialAttackTotal: (
+      totalSpecialAttack: (
         baseSpecialAttack + affinitySpecialAttack + eVSpecialAttack + internalMethods.natureFilter('specialAttack', nature, natureBoost, natureCut)
       ),
-      specialDefenceTotal: (
+      totalSpecialDefence: (
         baseSpecialDefence + affinitySpecialDefence + eVSpecialDefence + internalMethods.natureFilter('specialDefence', nature, natureBoost, natureCut)
       ),
-      speedTotal: (
+      totalSpeed: (
         baseSpeed + affinitySpeed + eVSpeed + + internalMethods.natureFilter('speed', nature, natureBoost, natureCut)
       ),
     }
