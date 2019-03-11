@@ -1,6 +1,6 @@
 const getUserInput = require('./commands/get_user_input').interface;
 const randomizeNumber = require('./commands/randomize_number');
-const minifyStats = require('./filters/minify_stats');
+const minifyStats = require('../filters/minify_stats');
 const assignEvBonus = require('./commands/assign_ev_bonus');
 const fetchNature = require('./commands/fetch_nature').interface;
 const deriveAffinity = require('./commands/derive_affinity').interface;

@@ -1,9 +1,9 @@
 let chai = require('chai');
 var assert = chai.assert;
 
-let MinifyStats = require('../../../../calculators/pokemon/filters/minify_stats.js');
+let MinifyStats = require('../../../../calculators/filters/minify_stats.js');
 
-describe('calculators/pokemon/filters/minify_stats.js', function () {
+describe('calculators/filters/minify_stats.js', function () {
   describe('MinifyStats()', function () {
     it('returns a useable output', function () {
       const input = {
