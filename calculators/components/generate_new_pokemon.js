@@ -3,24 +3,37 @@ const PokemonData = require('../../pokemon_data/00_pokemon_list');
 const GetRandomMoves = require('../moves/get_random_moves');
 
 function generateNewPokemon(pokemon = process.argv.slice(2)) {
-  const iChooseYou = PokemonData[pokemon[0]];
-  const level = pokemon[1];
-  const statsInput = [
-    pokemon[0], 
-    level,
-    iChooseYou.stats.hp,
-    iChooseYou.stats.atk,
-    iChooseYou.stats.def,
-    iChooseYou.stats.spAtk,
-    iChooseYou.stats.spDef,
-    iChooseYou.stats.spd,
-  ];
-  const generatedRandomStats = GeneratePokemon.interface(statsInput);
-  const pokemonWithMoves = GetRandomMoves.interface(generatedRandomStats, iChooseYou.moves);
-  console.log(pokemonWithMoves);
-}
+  // parse input
+  const [ name, level ] = pokemon;
 
-generateNewPokemon();
+  // get base data for given pokemon
+  const {
+    stats: {
+      hp,
+      atk,
+      def,
+      spAtk,
+      spDef,
+      spd,
+    },
+    moves
+  } = PokemonData[name];
+
+  // generate custom pokemon
+  return GetRandomMoves.interface(
+    GeneratePokemon.interface([
+      name,
+      level,
+      hp,
+      atk,
+      def,
+      spAtk,
+      spDef,
+      spd,
+    ]),
+    moves
+  );
+}
 
 module.exports = {
   interface: generateNewPokemon,
