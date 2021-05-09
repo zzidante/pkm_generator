@@ -49,4 +49,9 @@ module.exports = {
     { name: 'captivate', level: 50 },
     { name: 'poison fang', level: 58 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

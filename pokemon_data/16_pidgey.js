@@ -50,4 +50,9 @@ module.exports = {
     { name: 'air slash', level: 49 },
     { name: 'hurricane', level: 53 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

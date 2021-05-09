@@ -57,4 +57,9 @@ module.exports = {
     { name: 'hydro pump', level: 52 },
     { name: 'wring out', level: 56 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['poison_barb'],
+    guarantee: []
+  }
 };

@@ -60,4 +60,9 @@ module.exports = {
     { name: 'gyro ball', level: 59 },
     { name: 'zap cannon', level: 63 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['metal_coat', 'magnet'],
+    guarantee: []
+  }
 };

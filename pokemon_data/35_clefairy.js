@@ -59,4 +59,9 @@ module.exports = {
     { name: 'healing wish', level: 55 },
     { name: 'after you', level: 58 },
   ],
+  wild_items: {
+    common: ['leppa_berry'],
+    rare: ['moon_stone', 'comet_shard'],
+    guarantee: []
+  }
 };

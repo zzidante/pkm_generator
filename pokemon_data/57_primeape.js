@@ -57,4 +57,9 @@ module.exports = {
     { name: 'outrage', level: 53 },
     { name: 'final gambit', level: 57 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['payapa_berry'],
+    guarantee: []
+  }
 };

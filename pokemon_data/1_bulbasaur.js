@@ -49,4 +49,9 @@ module.exports = {
     { name: 'synthesis', level: 33 },
     { name: 'seed bomb', level: 37 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

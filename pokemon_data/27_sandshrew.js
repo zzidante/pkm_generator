@@ -53,4 +53,9 @@ module.exports = {
     { name: 'sandstorm', level: 42 },
     { name: 'earthquake', level: 46 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['quick_claw', 'grip_claw'],
+    guarantee: []
+  }
 };

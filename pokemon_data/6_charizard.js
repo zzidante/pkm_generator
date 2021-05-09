@@ -57,4 +57,9 @@ module.exports = {
     { name: 'heat wave', level: 71 },
     { name: 'flare blitz', level: 77 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

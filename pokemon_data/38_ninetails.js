@@ -40,4 +40,9 @@ module.exports = {
     { name: 'confuse ray', level: 1 },
     { name: 'safeguard', level: 1 },
   ],
+  wild_items: {
+    common: ['rawst_berry'],
+    rare: ['charcoal', 'snowball_alolan'],
+    guarantee: []
+  }
 };

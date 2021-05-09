@@ -49,4 +49,9 @@ module.exports = {
     { name: 'fire spin', level: 50 },
     { name: 'inferno', level: 54 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

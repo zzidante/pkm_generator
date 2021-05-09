@@ -36,4 +36,9 @@ module.exports = {
     { name: 'harden', level: -1 },
     { name: 'harden', level: 1 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

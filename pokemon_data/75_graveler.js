@@ -54,4 +54,9 @@ module.exports = {
     { name: 'double-edge', level: 50 },
     { name: 'stone edge', level: 54 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['everstone', 'hard_stone', 'alolan_cell_battery'],
+    guarantee: []
+  }
 };

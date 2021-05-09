@@ -52,4 +52,9 @@ module.exports = {
     { name: 'coil', level: 44 },
     { name: 'gunk shot', level: 49 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

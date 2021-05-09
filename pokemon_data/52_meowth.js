@@ -50,4 +50,9 @@ module.exports = {
     { name: 'night slash', level: 49 },
     { name: 'feint', level: 50 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['nugget', 'quick_claw'],
+    guarantee: []
+  }
 };

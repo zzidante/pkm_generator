@@ -46,4 +46,9 @@ module.exports = {
     { name: 'rage powder', level: 49 },
     { name: 'x-scissor', level: 54 },
   ],
+  wild_items: {
+    common: ['small_mushroom'],
+    rare: ['big_mushroom', 'balm_mushroom'],
+    guarantee: []
+  }
 };

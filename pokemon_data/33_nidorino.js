@@ -49,4 +49,9 @@ module.exports = {
     { name: 'captivate', level: 50 },
     { name: 'horn drill', level: 58 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

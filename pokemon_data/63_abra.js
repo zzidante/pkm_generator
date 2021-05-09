@@ -37,4 +37,9 @@ module.exports = {
   moves: [
     { name: 'teleport', level: 1 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['twisted_spoon'],
+    guarantee: []
+  }
 };

@@ -84,7 +84,7 @@ module.exports = {
   // farfetchd: require('./83_farfetchd.js'),
   doduo: require('./84_doduo.js'),
   // dodrio: require('./85_dodrio.js'),
-  // seel: require('./86_seel.js'),
+  seel: require('./86_seel.js'),
   // dewgong: require('./87_dewgong.js'),
   // grimer: require('./88_grimer.js'),
   // muk: require('./89_muk.js'),

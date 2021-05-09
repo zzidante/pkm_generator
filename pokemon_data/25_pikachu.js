@@ -47,4 +47,9 @@ module.exports = {
     { name: 'agility', level: 27 },
     { name: 'thunder', level: 30 },
   ],
+  wild_items: {
+    common: ['oran_berry'],
+    rare: ['light_ball'],
+    guarantee: []
+  }
 };

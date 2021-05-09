@@ -52,4 +52,9 @@ module.exports = {
     { name: 'psych up', level: 54 },
     { name: 'heal pulse', level: 58 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['kings_rock', 'lagging_tail'],
+    guarantee: []
+  }
 };

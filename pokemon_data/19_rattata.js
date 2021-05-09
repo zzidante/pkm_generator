@@ -50,4 +50,9 @@ module.exports = {
     { name: 'double-edge', level: 31 },
     { name: 'endeavor', level: 34 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['chilan_berry', 'pecha_berry'],
+    guarantee: []
+  }
 };

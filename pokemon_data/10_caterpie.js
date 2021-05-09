@@ -38,4 +38,9 @@ module.exports = {
     { name: 'string shot', level: 1 },
     { name: 'bug bite', level: 9 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

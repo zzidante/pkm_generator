@@ -49,4 +49,9 @@ module.exports = {
     { name: 'bounce', level: 45 },
     { name: 'flare blitz', level: 49 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['shuca_berry'],
+    guarantee: []
+  }
 };

@@ -42,4 +42,9 @@ module.exports = {
     { name: 'petal dance', level: 59 },
     { name: 'solar beam', level: 69 },
   ],
+  wild_items: {
+    common: ['absorb_bulb'],
+    rare: [],
+    guarantee: []
+  }
 };

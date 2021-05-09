@@ -46,4 +46,9 @@ module.exports = {
     { name: 'mind reader', level: 43 },
     { name: 'circle throw', level: 53 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['kings_rock'],
+    guarantee: []
+  }
 };

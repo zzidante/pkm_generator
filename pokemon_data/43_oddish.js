@@ -51,4 +51,9 @@ module.exports = {
     { name: 'grassy terrain', level: 47 },
     { name: 'petal dance', level: 51 },
   ],
+  wild_items: {
+    common: ['absorb_bulb'],
+    rare: [],
+    guarantee: []
+  }
 };

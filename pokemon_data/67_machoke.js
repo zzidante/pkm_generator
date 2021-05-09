@@ -55,4 +55,9 @@ module.exports = {
     { name: 'scary face', level: 53 },
     { name: 'dynamic punch', level: 57 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['focus_band'],
+    guarantee: []
+  }
 };

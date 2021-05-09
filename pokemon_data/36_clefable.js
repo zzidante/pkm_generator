@@ -42,4 +42,9 @@ module.exports = {
     { name: 'minimize', level: 1 },
     { name: 'metronome', level: 1 },
   ],
+  wild_items: {
+    common: ['leppa_berry'],
+    rare: ['moon_stone', 'comet_shard'],
+    guarantee: []
+  }
 };

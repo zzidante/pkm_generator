@@ -57,4 +57,9 @@ module.exports = {
     { name: 'bug buzz', level: 59 },
     { name: 'quiver dance', level: 63 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['shed_shell', 'silver_powder'],
+    guarantee: []
+  }
 };

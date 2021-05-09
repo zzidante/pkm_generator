@@ -49,4 +49,9 @@ module.exports = {
     { name: 'earthquake', level: 39 },
     { name: 'fissure', level: 43 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['soft_sand'],
+    guarantee: []
+  }
 };

@@ -56,4 +56,9 @@ module.exports = {
     { name: 'petal blizzard', level: 50 },
     { name: 'solar beam', level: 53 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

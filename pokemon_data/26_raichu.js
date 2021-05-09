@@ -43,4 +43,9 @@ module.exports = {
     { name: 'tail whip', level: 1 },
     { name: 'quick attack', level: 1 },
   ],
+  wild_items: {
+    common: ['oran_berry'],
+    rare: [],
+    guarantee: []
+  } 
 };

@@ -55,4 +55,9 @@ module.exports = {
     { name: 'hyper voice', level: 41 },
     { name: 'double-edge', level: 45 },
   ],
+  wild_items: {
+    common: ['oran_berry'],
+    rare: ['moonstone'],
+    guarantee: []
+  }
 };

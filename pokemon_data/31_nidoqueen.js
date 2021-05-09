@@ -45,4 +45,9 @@ module.exports = {
     { name: 'earth power', level: 43 },
     { name: 'superpower', level: 58 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

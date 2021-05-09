@@ -41,4 +41,9 @@ module.exports = {
     { name: 'fire fang', level: 1 },
     { name: 'extreme speed', level: 34 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: ['rawst_berry']
+  }
 };

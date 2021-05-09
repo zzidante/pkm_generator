@@ -53,4 +53,9 @@ module.exports = {
     { name: 'future sight', level: 43 },
     { name: 'trick', level: 46 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['twisted_spoon'],
+    guarantee: []
+  }
 };

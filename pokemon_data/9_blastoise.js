@@ -53,4 +53,9 @@ module.exports = {
     { name: 'rain dance', level: 54 },
     { name: 'hydro pump', level: 60 },
   ],
+  wild_items: {
+    common: [],
+    rare: [],
+    guarantee: []
+  }
 };

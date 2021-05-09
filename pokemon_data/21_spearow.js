@@ -46,4 +46,9 @@ module.exports = {
     { name: 'roost', level: 32 },
     { name: 'drill peck', level: 36 },
   ],
+  wild_items: {
+    common: [],
+    rare: ['sharp_beak'],
+    guarantee: []
+  }
 };
