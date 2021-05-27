@@ -7,7 +7,7 @@ function _generateNewPokemonSimple(pokemon = process.argv.slice(2)) {
   const iChooseYou = PokemonData[pokemon[0]];
   const lvl = pokemon[1];
   const statsInput = [
-    pokemon[0], 
+    pokemon[0],
     lvl,
     iChooseYou.stats.hp,
     iChooseYou.stats.atk,
@@ -21,15 +21,15 @@ function _generateNewPokemonSimple(pokemon = process.argv.slice(2)) {
   const pokemonWithMoves = GetRandomMoves.interface(generatedRandomStats, iChooseYou.moves);
 
   const {
-    name, 
-    level, 
-    nature, 
-    totalHitPoints, 
-    totalAttack, 
-    totalDefence, 
-    totalSpecialAttack, 
-    totalSpecialDefence, 
-    totalSpeed, 
+    name,
+    level,
+    nature,
+    totalHitPoints,
+    totalAttack,
+    totalDefence,
+    totalSpecialAttack,
+    totalSpecialDefence,
+    totalSpeed,
     test
   } = pokemonWithMoves;
 
