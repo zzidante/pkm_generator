@@ -17,12 +17,13 @@ describe('calculators/filters/minify_stats.js', function () {
         baseSpeed: 89,
       };
 
+      // always rounds up? Check this rule
       const expectedResults = {
         name: 'Test',
         level: 10,
         baseHitPoints: 2,
         baseAttack: 3,
-        baseDefence: 4,
+        baseDefence: 5,
         baseSpecialAttack: 5,
         baseSpecialDefence: 6,
         baseSpeed: 9,
