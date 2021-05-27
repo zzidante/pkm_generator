@@ -33,7 +33,7 @@ describe('helpers/minify_stats.js', function () {
 
     it('a function returns an error', function () {
       assert.throws(
-        () => ValidateIsNumber(function(){return true;}), Error, 'input has a typeof function with value function (){return true;} but was expecting a number.'
+        () => ValidateIsNumber(function(){return true;}), Error, 'input has a typeof function with value function(){return true;} but was expecting a number.'
       );
     });
 
@@ -42,13 +42,13 @@ describe('helpers/minify_stats.js', function () {
         () => ValidateIsNumber(['hello', 'my']), Error, 'input has a typeof object with value ["hello","my"] but was expecting a number.'
       );
     });
-    
+
     it('an array of numbers returns an error', function () {
       assert.throws(
         () => ValidateIsNumber([1, 2, 3]), Error, 'input has a typeof object with value [1,2,3] but was expecting a number.'
       );
     });
-    
+
     it('an empty string returns an error', function () {
       assert.throws(
         () => ValidateIsNumber(''), Error, 'input has a typeof string with value "" but was expecting a number.'
