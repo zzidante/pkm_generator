@@ -1,5 +1,5 @@
 const getUserInput = require('./commands/get_user_input').interface;
-const randomizeNumber = require('./commands/randomize_number');
+const randomizeNumber = require('../../helpers/randomize_number');
 const minifyStats = require('../filters/minify_stats');
 const assignEvBonus = require('./commands/assign_ev_bonus');
 const fetchNature = require('./commands/fetch_nature').interface;
@@ -11,8 +11,8 @@ function calculate_new_pokemon(pokemon = process.argv.slice(2)) {
   const minifiedStats = minifyStats(userInput);
   const assignedEvPoints = assignEvBonus(minifiedStats, randomizeNumber);
   const generatedNature = fetchNature(
-    { 
-      pokemonObj: assignedEvPoints, 
+    {
+      pokemonObj: assignedEvPoints,
       rolledNature: randomizeNumber(20)
     }
   );
