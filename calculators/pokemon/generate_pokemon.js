@@ -1,10 +1,10 @@
-const getUserInput = require('./commands/get_user_input').interface;
-const randomizeNumber = require('../../helpers/randomize_number');
-const minifyStats = require('../filters/minify_stats');
 const assignEvBonus = require('./commands/assign_ev_bonus');
-const fetchNature = require('./commands/fetch_nature').interface;
-const deriveAffinity = require('./commands/derive_affinity').interface;
 const calculateStatTotals = require('./commands/calculate_stat_totals').interface;
+const deriveAffinity = require('./commands/derive_affinity').interface;
+const fetchNature = require('./commands/fetch_nature').interface;
+const getUserInput = require('./commands/get_user_input').interface;
+const minifyStats = require('../filters/minify_stats');
+const randomizeNumber = require('../../helpers/randomize_number');
 
 function calculate_new_pokemon(pokemon = process.argv.slice(2)) {
   const userInput = getUserInput(pokemon);
