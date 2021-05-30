@@ -2,7 +2,7 @@ const chai = require('chai');
 const assert = chai.assert;
 const sinon = require('sinon');
 
-let randomizeNumber = require('../../../../calculators/pokemon/commands/randomize_number.js');
+let randomizeNumber = require('../../helpers/randomize_number.js');
 
 describe('calculators/pokemon/commands/randomize_number.js', function () {
   describe('randomizeNumber(arg)', function () {
@@ -17,7 +17,7 @@ describe('calculators/pokemon/commands/randomize_number.js', function () {
 
       // stub
       sinon.stub(Math, 'random').returns(randNumber);
-      
+
       // call the method
       const result = randomizeNumber(input);
 
@@ -40,7 +40,7 @@ describe('calculators/pokemon/commands/randomize_number.js', function () {
 
       // stub
       sinon.stub(Math, 'random').returns(randNumber);
-      
+
       // call the method
       const result = randomizeNumber(input);
 
@@ -62,7 +62,7 @@ describe('calculators/pokemon/commands/randomize_number.js', function () {
 
       // stub
       sinon.stub(Math, 'random').returns(randNumber);
-      
+
       // call the method
       const result = randomizeNumber(input);
 
