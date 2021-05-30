@@ -19,6 +19,7 @@
   "dependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
+    "pokedex-promise-v2": "^3.3.2",
     "sha1": "^1.1.1",
     "sinon": "^6.1.4"
   },
