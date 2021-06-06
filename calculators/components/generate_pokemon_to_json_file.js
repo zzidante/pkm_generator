@@ -16,8 +16,8 @@ const deps = {
 
 // used like so from CLI @ current: <file name level> of pokemon you want to generate
 // example: `node calculators/components/generate_pokemon_to_json_file.js seel 40`
-function makeFile(pokemon = process.argv.slice(2)) {
-  const newPokemon = deps.generateNewPokemon.interface(pokemon);
+function makeFile([_name, _level] = process.argv.slice(2)) {
+  const newPokemon = deps.generateNewPokemon.interface([_name, _level]);
   // this might be a lazy check, cuz the JSON _could_ get reordered without our knowledge / not guaranteed
   // especially if I source of from alternative areas later. Revisit this probably with a proper ordering scheme.
   // for now it should be fine since we only rely on our own way of generating the source JSON.
