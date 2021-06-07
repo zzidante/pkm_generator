@@ -2,7 +2,7 @@ const GeneratePokemon = require('../pokemon/generate_pokemon');
 const PokemonData = require('../../pokemon_data/00_pokemon_list');
 const GetRandomMoves = require('../moves/get_random_moves');
 
-function generateNewPokemon(pokemon = process.argv.slice(2)) {
+function generateNewPokemon(pokemon) {
   // parse input
   const [ name, level ] = pokemon;
 

@@ -5,7 +5,7 @@
   "main": "calculators/components/generate_pokemon_to_json_file.js",
   "scripts": {
     "test": "mocha --recursive --reporter spec",
-    "calculate_pokemon_to_file": "node calculators/components/generate_pokemon_to_json_file.js"
+    "calculate_pokemon_to_file": "node calculators/components/from_cli.js"
   },
   "repository": {
     "type": "git",
