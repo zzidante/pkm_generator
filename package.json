@@ -4,7 +4,7 @@
   "description": "A set of helper scripts to help generate trainer and wild pokemon for dungeons and dragonairs fan-made and free pokemon RPG.",
   "main": "calculators/components/generate_pokemon_to_json_file.js",
   "scripts": {
-    "test": "mocha --recursive --reporter spec",
+    "test": "mocha --recursive \"test/**/*.test.js\" --reporter spec --require test/setup.js",
     "calculate_pokemon_to_file": "node calculators/components/from_cli.js"
   },
   "repository": {
