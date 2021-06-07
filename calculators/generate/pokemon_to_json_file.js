@@ -32,7 +32,7 @@ function ctor (generateNewPokemon, generateSHA1, path, directoryPrefix, fileShou
 
 module.exports = {
   default: ctor(
-    generateNewPokemon = require('./generate_new_pokemon').interface,
+    generateNewPokemon = require('./new_pokemon').interface,
     generateSHA1 =  require('sha1'),
     path = require('path'),
     directoryPrefix = __dirname,
