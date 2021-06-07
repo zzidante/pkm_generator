@@ -1,7 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-const sinon = require('sinon');
-
 let CalculateStatTotals = require('../../../../calculators/pokemon/commands/calculate_stat_totals.js');
 
 describe('calculators/pokemon/commands/calculate_stat_totals.js', function () {

@@ -1,6 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-
 let FetchNature = require('../../../../calculators/pokemon/commands/fetch_nature.js').interface;
 
 describe('calculators/pokemon/commands/fetch_nature.js', function () {
@@ -34,14 +31,14 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
       const results = FetchNature(input);
 
       assert.deepEqual(results, expectedResults);
-    }); 
+    });
 
     it('throws an error when it recieves an unhandled roll value', function () {
       const input = {pokemonObj: {level: 20}, rolledNature: 0, dataOnly: true};
-      
+
       assert.throws(
         () => FetchNature(input), Error, 'rolledNature given: 0. Expected 1 - 20'
       );
-    }); 
+    });
   });
 });

@@ -1,7 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-const sinon = require('sinon');
-
 let randomizeNumber = require('../../helpers/randomize_number.js');
 
 describe('calculators/pokemon/commands/randomize_number.js', function () {

@@ -1,7 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-const sinon = require('sinon');
-
 let FetchNature = require('../../../../calculators/pokemon/commands/fetch_nature.js').internal;
 
 describe('calculators/pokemon/commands/fetch_nature.js', function () {
@@ -13,7 +9,7 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
         const results = FetchNature.natureStatChangeByLevel(input);
 
         assert.equal(results, expectedResults);
-      });     
+      });
 
       it('returns appropriate nature stats for a cut', function () {
         const input = {level: 25, advantage: false};
@@ -21,7 +17,7 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
         const results = FetchNature.natureStatChangeByLevel(input);
 
         assert.equal(results, expectedResults);
-      }); 
+      });
     });
 
     describe('calculateNatureChanges()', function () {
@@ -36,7 +32,7 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
           .returns('test')
           .onCall(1)
           .returns('sample');
-        
+
         // call the method
         const results = FetchNature.calculateNatureChanges({ level: 1 });
 
@@ -46,15 +42,15 @@ describe('calculators/pokemon/commands/fetch_nature.js', function () {
 
         assert.deepEqual(results, {level: 1, natureBoost: 'test', natureCut: 'sample'});
         sinon.restore();
-      }); 
+      });
 
       it('throws an error when it the object has no level property', function () {
         const input = {pokemonObj: {level: 20}, rolledNature: 0, dataOnly: true};
-        
+
         assert.throws(
           () => FetchNature.calculateNatureChanges(input), Error, 'Expected \'object: {level: <number>}\' in args - given: pokemonObj.level = undefined'
         );
-      });     
+      });
     });
   });
 });

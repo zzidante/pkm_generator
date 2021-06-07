@@ -1,7 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-const sinon = require('sinon');
-
 let getUserInput = require('../../../../calculators/pokemon/commands/get_user_input.js').internal;
 
 describe('calculators/pokemon/commands/get_user_input.js', function () {
@@ -38,14 +34,14 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
     describe('checkArgumentTypes()', function () {
       it('does not return an error for last 7 args as numbers', function () {
         const correctInput = ['PKMN', '1', 2, 3, 4, '5', 6, 7];
-        
+
         assert.doesNotThrow(
           () => getUserInput.checkArgumentLength(correctInput), Error, 'Please use numbers for the last 7 arguments'
         );
       });
       it('returns an error if last 7 args are not given as numbers', function () {
         const incorrectInput = ['test', 'test', 'test', 'test', 'test', 'test', 'test', 'test'];
-        
+
         assert.throws(
           () => getUserInput.checkArgumentTypes(incorrectInput), Error, 'Please use numbers for the last 7 arguments'
         );
@@ -60,7 +56,7 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
         // stubs
         const checkArgumentLength = sinon.stub(getUserInput, 'checkArgumentLength');
         const checkArgumentTypes = sinon.stub(getUserInput, 'checkArgumentTypes');
-        
+
         // call the method
         getUserInput.filterArguments('test');
 
@@ -72,7 +68,7 @@ describe('calculators/pokemon/commands/get_user_input.js', function () {
     });
 
     describe('formatToNum()', function () {
-      it('it turns an array of string numbers into real numbers', function () {        
+      it('it turns an array of string numbers into real numbers', function () {
         const call = ['1', '2'];
         const result = [1, 2];
 

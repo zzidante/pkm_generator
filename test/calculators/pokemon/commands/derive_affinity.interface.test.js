@@ -1,7 +1,3 @@
-const chai = require('chai');
-const assert = chai.assert;
-const sinon = require('sinon');
-
 let DeriveAffinity = require('../../../../calculators/pokemon/commands/derive_affinity.js');
 
 describe('calculators/pokemon/commands/derive_affinity.js', function () {
