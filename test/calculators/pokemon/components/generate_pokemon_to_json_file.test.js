@@ -1,6 +1,6 @@
-let generatePokemonToJsonFile = require('../../../../calculators/components/generate_pokemon_to_json_file.js');
+let generatePokemonToJsonFile = require('../../../../calculators/generate/generate_pokemon_to_json_file.js');
 
-describe('calculators/components/generate_pokemon_to_json_file.js', function () {
+describe('calculators/generate/generate_pokemon_to_json_file.js', function () {
   describe('pure()', function () {
     it('file overwrite is true; returns generated pokemon stats', function () {
       const derivedNewPokemon = { name: 'tName', level: 99, nature: { name: 'tNatureName' }}
