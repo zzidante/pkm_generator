@@ -1,52 +1,43 @@
-const path = require('path');
-const sha1 = require('sha1');
+function ctor (generateNewPokemon, generateSHA1, path, fileShouldBeOverwritten, writeStreamToJson, logger) {
+  this.makeFile = ([_name, _level]) => {
+    const newPokemon = generateNewPokemon.interface([_name, _level]);
+    // This is a lazy check, cuz the JSON _could_ get reordered without our knowledge / not guaranteed especially
+    // if I source from alternative areas later. Revisit this with a proper pre-ordering scheme to ensure keys are
+    // in a predicable order. For now this is good enough since we rely on our own way of generating the source JSON.
+    const uniqContentId = generateSHA1(newPokemon);
 
-const GenerateNewPokemon = require('./generate_new_pokemon');
-const logger = require('../../helpers/logger');
-const fileShouldBeOverwritten = require('../../file_handling/file_should_be_overwritten').interface;
-const writeStreamToJson = require('../../file_handling/write_stream_to_json').interface;
+    const {
+      name,
+      level,
+      nature: { name: natureName },
+    } = newPokemon;
 
-const deps = {
-  generateNewPokemon: GenerateNewPokemon,
-  generateSHA1: sha1,
-  logger: logger,
-  fileShouldBeOverwritten: fileShouldBeOverwritten,
-  writeStreamToJson: writeStreamToJson,
-};
+    const fileName = `${name}_${level}_${natureName}_${uniqContentId}.json`;
+    const fullyQualifiedPath = path.join(__dirname, 'generated_pokemon', fileName);
+    const overwriteFile = fileShouldBeOverwritten(fullyQualifiedPath);
 
-// used like so from CLI @ current: <file name level> of pokemon you want to generate
-// example: `node calculators/components/generate_pokemon_to_json_file.js seel 40`
-function makeFile([_name, _level] = process.argv.slice(2)) {
-  const newPokemon = deps.generateNewPokemon.interface([_name, _level]);
-  // this might be a lazy check, cuz the JSON _could_ get reordered without our knowledge / not guaranteed
-  // especially if I source of from alternative areas later. Revisit this probably with a proper ordering scheme.
-  // for now it should be fine since we only rely on our own way of generating the source JSON.
-  const uniqContentId = deps.generateSHA1(newPokemon);
+    if (overwriteFile) {
+      logger({message: `${fileName} being written...`});
+      writeStreamToJson({fullyQualifiedPath, dataObject: newPokemon});
+      logger({ message: `${fileName} done.`});
+    } else {
+      logger({ message: `${fileName} should not be overwritten, skipped.`});
+    }
 
-  const {
-    name,
-    level,
-    nature: { name: natureName },
-  } = newPokemon;
+    return newPokemon;
+  };
 
-  const fileName = `${name}_${level}_${natureName}_${uniqContentId}.json`;
-  const fullyQualifiedPath = path.join(__dirname, 'generated_pokemon', fileName);
-  const overwriteFile = fileShouldBeOverwritten(fullyQualifiedPath);
-
-  if (overwriteFile) {
-    deps.logger({message: `${fileName} being written...`});
-    writeStreamToJson({fullyQualifiedPath, dataObject: newPokemon});
-    deps.logger({ message: `${fileName} done.`});
-  } else {
-    deps.logger({ message: `${fileName} should not be overwritten, skipped.`});
-  }
-
-  return newPokemon;
+  return this.makeFile;
 }
 
-makeFile();
-
 module.exports = {
-  interface: makeFile,
-  deps: deps,
+  default: ctor(
+    generateNewPokemon = require('./generate_new_pokemon'),
+    generateSHA1 =  require('sha1'),
+    path = require('path'),
+    fileShouldBeOverwritten = require('../../file_handling/file_should_be_overwritten').interface,
+    writeStreamToJson = require('../../file_handling/write_stream_to_json').interface,
+    logger = require('../../helpers/logger')
+  ),
+  pure: ctor,
 };
