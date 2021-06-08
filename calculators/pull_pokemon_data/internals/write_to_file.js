@@ -1,5 +1,5 @@
 function ctor (path, directoryPrefix, fileShouldBeOverwritten, writeStreamToJson, logger) {
-  this.makeFile = ({fileName, version, datePulled, response}) => {
+  this.makeFile = ({fileName, version, datePulled, ...response}) => {
     const fileContents = {fileName, version, datePulled, response};
 
     const fullyQualifiedPath = path.join(directoryPrefix, '../raw_responses', fileName);
@@ -7,13 +7,13 @@ function ctor (path, directoryPrefix, fileShouldBeOverwritten, writeStreamToJson
 
     if (overwriteFile) {
       logger({message: `${fileName} being written...`});
-      writeStreamToJson({fullyQualifiedPath, dataObject: fileContents});
-      logger({ message: `${fileName} done.`});
+      writeStreamToJson(
+        { fullyQualifiedPath, dataObject: fileContents },
+        () => { logger({ message: `${fileName} done.`}); }
+      );
     } else {
       logger({ message: `${fileName} should not be overwritten, skipped.`});
     }
-
-    return newPokemon;
   };
 
   return this.makeFile;

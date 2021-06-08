@@ -6,75 +6,81 @@ require('dotenv').config();
 const PokedexPromise = require('pokedex-promise-v2');
 const GetPokemonAPIData = new PokedexPromise();
 const writeToFile = require('./internals/write_to_file').default;
-const deps = {
-  writeToFile: writeToFile,
-  getNameFromResponse: function (response) {
-    const name = response.name;
+const reverseString = require('../../helpers/reverse_string');
 
-    if (name) {
-      return name;
-    } else {
-      throw 'No `name` parameter on response object';
+// calls all of our endpoints and writes the results to a file in `./raw_responses`
+const getPokemonData = async function (pokemonName, endIt = false) {
+  const currentLocaleDate = new Date();
+  const fileName = `${pokemonName}_v${process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION}.json`;
+  let pokemonByNameAPIResponse;
+  let pokemonBySpeciesReducedAPIResponse;
+  let pokemonEvolutionChainId;
+  let pokemonEvolutionChainAPIResponse;
+
+  await GetPokemonAPIData.getPokemonByName(pokemonName)
+  .then((response) => {
+    if (!response.name) {
+      throw 'No `name` parameter on response object - pokemon is invalid';
     }
-  },
-};
 
-const getPokemonData = function (whoseThatPokemon, endIt = null) {
-  const fullGenerationLastPokemonCollection = [
-    151,
-    251,
-    386,
-    493,
-    649,
-    721,
-    809,
-    898,
-  ];
+    pokemonByNameAPIResponse = response;
+  })
+  .catch((error) => {
+    throw error;
+  });
 
-  const [
-    generationOneLastPokemon,
-    generationTwoLastPokemon,
-    generationThreeLastPokemon,
-    generationFourLastPokemon,
-    generationFiveLastPokemon,
-    generationSixLastPokemon,
-    generationSevenLastPokemon,
-    generationEightLastPokemon,
-  ] = fullGenerationLastPokemonCollection;
-
-  GetPokemonAPIData.getPokemonByName(whoseThatPokemon) // with Promise
-  .then(function (response) {
-    // this is a loose timeframe, when I want to be serious about I will do the UTC storing via postgres later.
-    const currentLocaleDate = new Date();
-    const fileName = `${whoseThatPokemon}_${deps.getNameFromResponse(response)}_v${process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION}.json`;
-
-    deps.writeToFile(
-      {
-        fileName: fileName,
-        version: process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION,
-        datePulled: `${currentLocaleDate.getUTCFullYear()}-${currentLocaleDate.getUTCMonth()}-${currentLocaleDate.getUTCDate()}`,
-        response: response,
-      }
+  await GetPokemonAPIData.getPokemonSpeciesByName(pokemonName)
+  .then((response) => {
+    // reverse the URL to get only the ID from the back of the string, then flip it back and parse to a number
+    pokemonEvolutionChainId = parseInt(
+      reverseString(
+        reverseString(response.evolution_chain.url).split('/')[1]
+      )
     );
+
+    // we don't need most of this data -- there's a lot of duplication with the previous endpoint
+    pokemonBySpeciesReducedAPIResponse = {
+      evolutionChainId: pokemonEvolutionChainId,
+      genderRate: response.gender_rate, // The chance of this Pokémon being female, in eighths; or -1 for genderless.
+      captureRate: response.capture_rate,
+      baseHappiness: response.base_happiness,
+    };
   })
-  .then(function (_r) {
-    console.log('end get_data');
+  .catch((error) => {
+    throw error;
+  });
+
+  await GetPokemonAPIData.getEvolutionChainById(pokemonEvolutionChainId)
+  .then((response) => {
+    pokemonEvolutionChainAPIResponse = response;
   })
-  .catch(function (error) {
-    console.log('There was an ERROR: ', error);
+  .catch((error) => {
+    throw error;
   })
-  .finally(function () {
+  .finally(() => {
     // this promise is keeping the process alive 'indefinitely' -- probably cuz Promises aren't part of Node's
     // 'are there any callbacks left to call? No? Okay close it' logic so Promises don't prevent process from ending but
     // I am sure this package has a SetInterval or SetTimeout to prevent that forced closing from happening - but is this
     // what we really want here? HMMM. Gotta look into this further later when I've actually piped in everything.
     // NOTE: We'd need to know writing to <all the> file<s> is done before we'd be able to safely smash this closed.
     //
-    // if (endIt) {
-    //   process.exit();
-    // }
+    if (endIt) {
+      process.exit();
+    }
   });
-};
+
+  writeToFile(
+    {
+      fileName: fileName,
+      version: process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION,
+      // this is a loose timeframe, when I want to be serious about I will do the UTC storing via postgres later.
+      datePulled: `${currentLocaleDate.getUTCFullYear()}-${currentLocaleDate.getUTCMonth()}-${currentLocaleDate.getUTCDate()}`,
+      pokemonByNameAPIResponse: pokemonByNameAPIResponse,
+      pokemonBySpeciesAPIResponse: pokemonBySpeciesReducedAPIResponse,
+      pokemonEvolutionChainAPIResponse: pokemonEvolutionChainAPIResponse
+    }
+  );
+}
 
 module.exports = {
   interface: getPokemonData,
