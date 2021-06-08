@@ -1,0 +1,21 @@
+const fullGenerationLastPokemonCollection = [
+  151,
+  251,
+  386,
+  493,
+  649,
+  721,
+  809,
+  898,
+];
+
+const [
+  generationOneLastPokemon,
+  generationTwoLastPokemon,
+  generationThreeLastPokemon,
+  generationFourLastPokemon,
+  generationFiveLastPokemon,
+  generationSixLastPokemon,
+  generationSevenLastPokemon,
+  generationEightLastPokemon,
+] = fullGenerationLastPokemonCollection;
