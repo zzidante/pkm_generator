@@ -8,7 +8,7 @@ var merge = require('lodash.merge');
 var cloneDeep = require('lodash.clonedeep');
 const logger = require('../../helpers/logger');
 
-const convertRawData = function (pokemonName, pokemonNumber) {
+const convertRawData = function (pokemonName) {
   // loop through files & find unprocessed ones (by name & version if updateVersion is set)
   // for each unprocessed file
   function convertStatNames (externalName) {
@@ -89,7 +89,45 @@ const convertRawData = function (pokemonName, pokemonNumber) {
     };
   }
 
-  fs.readFile(`${__dirname}/raw_responses/${pokemonNumber}_${pokemonName}_v${process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION}.json`, 'utf8', function (err,data) {
+  function parseGender(ratio) {
+    // -1 means genderless
+    if (ratio < 0) {
+      return [false]; // aka genderless
+    } else {
+      // this is how the API expresses the ratios, in eighths
+      const percentMale = ratio / 8;
+      const percentFemale = 100 - percentMale;
+      return [ {m: percentMale}, {f: percentFemale} ];
+    }
+
+  }
+
+  function parseMoves(moves) {
+    let moveMap = {};
+    moves.forEach((move) => {
+      const moveName = move.move.name;
+      let currentMax;
+
+      move.version_group_details.forEach((detail) => {
+        // some games will have different levels for different moves, or different moves altogether.
+        // we allow for all moves across any level and also always choose the highest level is can be
+        // learned at for a level up.
+        if (detail.move_learn_method.name === 'level-up' && (!currentMax || detail.level_learned_at > currentMax)) {
+          currentMax = detail.level_learned_at;
+          moveMap[moveName] = detail.level_learned_at;
+        }
+      });
+
+    });
+    let formattedMoves = [];
+    for (let [key, value] of Object.entries(moveMap)) {
+      formattedMoves.push( { name: key, level: value } );
+    }
+
+    return formattedMoves;
+  }
+
+  fs.readFile(`${__dirname}/raw_responses/${pokemonName}_v${process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION}.json`, 'utf8', function (err,data) {
     if (err) {
       logger({message: err});
       // we probably wanna throw here
@@ -100,17 +138,23 @@ const convertRawData = function (pokemonName, pokemonNumber) {
       version,
       datePulled,
       response: {
-        name,
-        id: pokedex,
-        height,
-        weight,
-        types,
-        stats,
-        moves,
-        abilities,
-        base_experience: baseExperience,
-        held_items: heldItems,
-        ...other
+        pokemonByNameAPIResponse: {
+          name,
+          id: pokedex,
+          height,
+          weight,
+          types,
+          stats,
+          moves,
+          abilities,
+          base_experience: baseExperience,
+          held_items: heldItems,
+          ...other
+        },
+        pokemonBySpeciesAPIResponse: {
+          genderRate,
+          captureRate,
+        }
       }
     } = JSON.parse(data);
 
@@ -120,14 +164,6 @@ const convertRawData = function (pokemonName, pokemonNumber) {
     const initObj = {
       name: null,
       pokedex: null,
-      evolution: {
-        hasEvolutions: null,
-        currentEvolutionStep: null,
-        maxEvolutionSteps: null,
-        details: [
-          {  evolutionStep: null, form: null, level: null, condition: null },
-        ]
-      },
       stats: {
         hp: null,
         atk: null,
@@ -139,7 +175,7 @@ const convertRawData = function (pokemonName, pokemonNumber) {
       type: [],
       catchRate: null,
       experienceYield: null,
-      genderRatio: [{m: null}, {f: null}],
+      genderRatio: [],
       evYield: [
         { type: null, value: null }
       ],
@@ -169,39 +205,19 @@ const convertRawData = function (pokemonName, pokemonNumber) {
         abilities: parseAbilities(abilities),
         stats: statsObj,
         type: typeNames,
+        catchRate: captureRate,
         experienceYield: baseExperience,
+        genderRatio: parseGender(parseInt(genderRate)),
         height: height,
         weight: weight,
+        moves: parseMoves(moves),
         evYield: evYield,
         wild_items: convertHeldItemRarity(heldItems),
       }
     );
-
+      console.log(initCopy);
   });
 };
-  // TO DO CONVERSIONS
-  // gender
-  // not based on pokemon id >....< i need to pull whose list and collate
-  // rate expressed in 1/8ths
-  // https://pokeapi.co/api/v2/gender/{female|male|genderless}
-
-  // capture rates
-  // based on the pokemon species
-  // not based on pokemon id >....< i need to pull whose list and collate
-  // https://pokeapi.co/api/v2/pokemon-species/{id or name}/
-
-  // evolution
-  // not based on pokemon id >....< i need to pull whose list and collate
-  // we can get there through species!!! https://pokeapi.co/api/v2/pokemon-species/77/ > evolution chain
-  // https://pokeapi.co/api/v2/evolution-chain/{id}/
-
-  // https://pokeapi.co/api/v2/pokemon-species/77/
-  // also contains `basehappiness`
-
-  // MOVES
-  // ... I need to choose a solid conversion strategy here to deal with multi-version level differences.
-
-convertRawData('ponyta', 77);
 
 module.exports = {
   interface: convertRawData,
