@@ -129,9 +129,7 @@ const convertRawData = function (pokemonName) {
 
   fs.readFile(`${__dirname}/raw_responses/${pokemonName}_v${process.env.TABLETOP_CONVERTED_DATA_JSON_VERSION}.json`, 'utf8', function (err,data) {
     if (err) {
-      logger({message: err});
-      // we probably wanna throw here
-      return;
+      throw err;
     }
     const {
       fileName,
@@ -215,6 +213,9 @@ const convertRawData = function (pokemonName) {
         wild_items: convertHeldItemRarity(heldItems),
       }
     );
+
+      // to be stored at a later time -- for now it does need to be fully matched with the current format
+      // but this removes 99.5% of all the manual work needed to add a new pokemon to the static data sets.
       console.log(initCopy);
   });
 };
