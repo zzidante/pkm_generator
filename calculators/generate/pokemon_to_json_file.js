@@ -20,7 +20,7 @@ function ctor (generateNewPokemon, generateSHA1, path, directoryPrefix, fileShou
       logger({message: `${fileName} being written...`});
       writeStreamToJson(
         { fullyQualifiedPath, dataObject: newPokemon },
-        logger({ message: `${fileName} done.`})
+        () => { logger({ message: `${fileName} done.`}); }
       );
     } else {
       logger({ message: `${fileName} should not be overwritten, skipped.`});
