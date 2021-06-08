@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const PokedexPromise = require('pokedex-promise-v2');
 const GetPokemonAPIData = new PokedexPromise();
-const writeToFile = require('./internals/write_to_file').interface;
+const writeToFile = require('./internals/write_to_file').default;
 const deps = {
   writeToFile: writeToFile,
   getNameFromResponse: function (response) {
@@ -76,11 +76,6 @@ const getPokemonData = function (whoseThatPokemon, endIt = null) {
   });
 };
 
-// remove when we import this rather than calling it direct
-getPokemonData(process.argv.slice(1)[1], true);
-
-
-// nothing is importing this yet.
-// module.exports = {
-//   interface: getPokemonData,
-// };
+module.exports = {
+  interface: getPokemonData,
+};

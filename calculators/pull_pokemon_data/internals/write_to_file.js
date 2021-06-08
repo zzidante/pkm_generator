@@ -1,27 +1,31 @@
-const path = require('path');
-const fileShouldBeOverwritten = require('../../../file_handling/file_should_be_overwritten').interface;
-const writeStreamToJson = require('../../../file_handling/write_stream_to_json').interface;
-const logger = require('../../../helpers/logger');
+function ctor (path, directoryPrefix, fileShouldBeOverwritten, writeStreamToJson, logger) {
+  this.makeFile = ({fileName, version, datePulled, response}) => {
+    const fileContents = {fileName, version, datePulled, response};
 
-const deps = {
-  logger: logger,
-};
+    const fullyQualifiedPath = path.join(directoryPrefix, '../raw_responses', fileName);
+    const overwriteFile = fileShouldBeOverwritten(fullyQualifiedPath);
 
-const writeToFile = function ({fileName, version, datePulled, response}) {
-  const fileContents = {fileName, version, datePulled, response};
+    if (overwriteFile) {
+      logger({message: `${fileName} being written...`});
+      writeStreamToJson({fullyQualifiedPath, dataObject: fileContents});
+      logger({ message: `${fileName} done.`});
+    } else {
+      logger({ message: `${fileName} should not be overwritten, skipped.`});
+    }
 
-  const fullyQualifiedPath = path.join(__dirname, '../raw_responses', fileName);
-  const overwriteFile = fileShouldBeOverwritten(fullyQualifiedPath);
+    return newPokemon;
+  };
 
-  if (overwriteFile) {
-    deps.logger({message: `${fileName} being written...`});
-    writeStreamToJson({fullyQualifiedPath, dataObject: fileContents});
-    deps.logger({ message: `${fileName} done.`});
-  } else {
-    deps.logger({ message: `${fileName} should not be overwritten, skipped.`});
-  }
-};
+  return this.makeFile;
+}
 
 module.exports = {
-  interface: writeToFile,
+  default: ctor(
+    path = require('path'),
+    directoryPrefix = __dirname,
+    fileShouldBeOverwritten = require('../../../file_handling/file_should_be_overwritten').interface,
+    writeStreamToJson = require('../../../file_handling/write_stream_to_json').interface,
+    logger = require('../../../helpers/logger')
+  ),
+  pure: ctor,
 };
