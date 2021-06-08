@@ -19,9 +19,9 @@ whenever we don't have the information available.
 can be seen in `pokemon_data/00_pokemon_list.js`.
 
 # Sample
-`npm run get_data pikachu`
-`npm run convert_to_tabletop pikachu`
-`npm run generate_pokemon_tabletop_instance pikachu 40`
+- `npm run get_data pikachu`
+- `npm run convert_to_tabletop pikachu`
+- `npm run generate_pokemon_tabletop_instance pikachu 40`
 
 ## There are also some mocha/chai/sinon unit tests which can be run. Most of these cover core calculator-like functions. There are two methods of dependency injection testing in here, the most current one uses the `default` pattern shown.
 `npm run test`
