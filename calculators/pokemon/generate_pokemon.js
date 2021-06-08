@@ -6,7 +6,7 @@ const getUserInput = require('./commands/get_user_input').interface;
 const minifyStats = require('../filters/minify_stats');
 const randomizeNumber = require('../../helpers/randomize_number');
 
-function calculate_new_pokemon(pokemon = process.argv.slice(2)) {
+function calculate_new_pokemon(pokemon) {
   const userInput = getUserInput(pokemon);
   const minifiedStats = minifyStats(userInput);
   const assignedEvPoints = assignEvBonus(minifiedStats, randomizeNumber);
