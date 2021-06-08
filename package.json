@@ -5,7 +5,9 @@
   "main": "calculators/generate/pokemon_to_json_file.js",
   "scripts": {
     "test": "mocha --recursive \"test/**/*.test.js\" --reporter spec --require test/setup.js",
-    "calculate_pokemon_to_file": "node calculators/generate/from_cli.js"
+    "get_data": "node calculators/pull_pokemon_data/get_data_from_cli.js",
+    "convert_to_tabletop": "node calculators/pull_pokemon_data/convert_to_tabletop_from_cli.js",
+    "generate_pokemon_tabletop_instance": "node calculators/generate/from_cli.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "lodash.merge": "^4.6.2",
     "mocha": "^5.2.0",
     "pokedex-promise-v2": "^3.3.2",
+    "read-last-lines": "^1.8.0",
     "sha1": "^1.1.1",
     "sinon": "^6.1.4"
   },
