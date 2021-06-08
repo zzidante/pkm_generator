@@ -1,40 +1,45 @@
-const GeneratePokemon = require('../pokemon/generate_pokemon');
-const PokemonData = require('../../pokemon_data/00_pokemon_list');
-const GetRandomMoves = require('../moves/get_random_moves');
+function ctor(generatePokemon, pokemonData, getRandomMoves) {
+  this.newPokemon = (pokemon) => {
+    // parse input
+    const [ name, level ] = pokemon;
 
-function generateNewPokemon(pokemon) {
-  // parse input
-  const [ name, level ] = pokemon;
+    // get base data for given pokemon
+    const {
+      stats: {
+        hp,
+        atk,
+        def,
+        spAtk,
+        spDef,
+        spd,
+      },
+      moves
+    } = pokemonData[name];
 
-  // get base data for given pokemon
-  const {
-    stats: {
-      hp,
-      atk,
-      def,
-      spAtk,
-      spDef,
-      spd,
-    },
-    moves
-  } = PokemonData[name];
+    // generate custom pokemon
+    return getRandomMoves(
+      generatePokemon([
+        name,
+        level,
+        hp,
+        atk,
+        def,
+        spAtk,
+        spDef,
+        spd,
+      ]),
+      moves
+    );
+  };
 
-  // generate custom pokemon
-  return GetRandomMoves.interface(
-    GeneratePokemon.interface([
-      name,
-      level,
-      hp,
-      atk,
-      def,
-      spAtk,
-      spDef,
-      spd,
-    ]),
-    moves
-  );
+  return this.newPokemon;
 }
 
 module.exports = {
-  interface: generateNewPokemon,
+  default: ctor(
+    generatePokemon = require('../pokemon/generate_pokemon').interface,
+    pokemonData = require('../../pokemon_data/00_pokemon_list'),
+    getRandomMoves = require('../moves/get_random_moves').interface
+  ),
+  pure: ctor
 };
