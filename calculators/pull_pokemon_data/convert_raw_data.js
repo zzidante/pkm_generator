@@ -220,5 +220,5 @@ const convertRawData = function (pokemonName) {
 };
 
 module.exports = {
-  interface: convertRawData,
+  default: convertRawData,
 };

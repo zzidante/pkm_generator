@@ -14,6 +14,8 @@ function ctor (path, directoryPrefix, fileShouldBeOverwritten, writeStreamToJson
     } else {
       logger({ message: `${fileName} should not be overwritten, skipped.`});
     }
+
+    return fullyQualifiedPath;
   };
 
   return this.makeFile;
