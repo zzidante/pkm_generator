@@ -4,7 +4,14 @@ const getUserInput = (input) => {
   internalMethods.filterArguments(input);
 
   const inputToInt = internalMethods.formatToNum(input.slice(1));
-  
+  const level = inputToInt[0];
+  if (level > 100) {
+    throw `A Pokemon's level cannot exceed 100 -- ${level} was used`;
+  }
+  if (level < 1) {
+    throw `A Pokemon's level must by greater than 0 -- ${level} was used`;
+  }
+
   return {
     name: input[0],
     level: inputToInt[0],
@@ -25,14 +32,14 @@ const internalMethods = {
     }
     return input.length;
   },
-  
+
   checkArgumentTypes: function (input) {
     const typeCheck = input.filter((stat, i) => {
       if (i > 0) {
         return !isNaN(parseFloat(stat));
       }
     });
-    
+
     const lengthDifference = typeCheck.length !== input.length - 1;
 
     if (lengthDifference) {
@@ -40,7 +47,7 @@ const internalMethods = {
     }
     return lengthDifference;
   },
-  
+
   filterArguments: function (input) {
     this.checkArgumentLength(input);
     this.checkArgumentTypes(input);
