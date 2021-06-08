@@ -4,7 +4,6 @@ const readLastLines = require('read-last-lines');
 
 if (pokemonName) {
   getData(pokemonName).then((qualifiedPath) => {
-    console.log(qualifiedPath);
     const checkForFinishedFile = function (path, run = true) {
       readLastLines.read(path, 1)
       // hack for now until we are running everything on a server, by checking that
@@ -22,7 +21,7 @@ if (pokemonName) {
               checkForFinishedFile(path, false);
             }, 5000);
           } else {
-            console.log('write took longer than expected or is not ending as expected, manually abort.');
+            console.log('write took longer than expected or is not ending as expected, its up to operator to manually abort with ctrl-C.');
           }
         }
       });
